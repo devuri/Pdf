@@ -623,6 +623,121 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
+     * {@inheritdoc}
+     */
+    public function setMetaTitle($str)
+    {
+        $this->setProperty('metaTitle', $str);
+        $this->mpdf->SetTitle($this->metaTitle);
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMetaAuthor($str)
+    {
+        $this->setProperty('metaAuthor', $str);
+        $this->mpdf->SetAuthor($this->metaAuthor);
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMetaCreator($str)
+    {
+        $this->setProperty('metaCreator', $str);
+        $this->mpdf->SetCreator($this->metaCreator);
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMetaSubject($str)
+    {
+        $this->setProperty('metaSubject', $str);
+        $this->mpdf->SetSubject($this->metaSubject);
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setMetaKeywords(array $words)
+    {
+        $this->setProperty('metaKeywords', array_merge($this->metaKeywords, $words));
+        $this->mpdf->SetKeywords(implode(', ', $this->metaKeywords));
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPageSizeLetter()
+    {
+        $this->setProperty('pageSize', 'Letter');
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPageSizeLegal()
+    {
+        $this->setProperty('pageSize', 'Legal');
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPageAsLandscape()
+    {
+        $this->setProperty('pageOrientation', 'Landscape');
+        $this->registerPageFormat();
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setPageAsPortrait()
+    {
+        $this->setProperty('pageOrientation', 'Portrait');
+        $this->registerPageFormat();
+
+        return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
      * Method implementations inserted.
      *
      * The notation below illustrates visibility: (+) @api, (-) protected or private.
