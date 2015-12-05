@@ -22,7 +22,7 @@
         "php": ">=5.6.10",
         "mpdf/mpdf": "6.0.0",
         "smalot/pdfparser": "0.9.25",
-        "ucsdmath/functions": "1.5.x-dev"
+        "ucsdmath/functions": "1.5.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
