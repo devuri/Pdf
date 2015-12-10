@@ -21,40 +21,40 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  *
  * This component library is an adapter to the mPDF library.
  *
- * Methods list:
+ * Method list: (+) @api, (-) protected or private visibility. (+) @api, (-) protected or private.
  *
- * @method PdfInterface __construct();
- * @method void __destruct();
- * @method render();
- * @method setPageSizeLegal();
- * @method setPageAsPortrait();
- * @method setPageSizeLetter();
- * @method appendPageCSS($str);
- * @method setPageAsLandscape();
- * @method registerPageMargins();
- * @method appendPageContent($str);
- * @method setMetaTitle($str = null);
- * @method setFontSize($size = null);
- * @method setMetaAuthor($str = null);
- * @method setMetaCreator($str = null);
- * @method setMetaSubject($str = null);
- * @method setHeader(array $data = null);
- * @method setFooter(array $data = null);
- * @method setFilename($filename = null);
- * @method setFontType($fontname = null);
- * @method setPageSize($pageSize = null);
- * @method getFontFamily($fontname = null);
- * @method setMarginTop($marginTop = null);
- * @method setMargins(array $setting = null);
- * @method setMarginLeft($marginLeft = null);
- * @method setMarginRight($marginRight = null);
- * @method setMetaKeywords(array $words = null);
- * @method setMarginBottom($marginBottom = null);
- * @method setMarginHeader($marginHeader = null);
- * @method setMarginFooter($marginFooter = null);
- * @method setOutputDestination($destination = null);
- * @method registerPageFormat($pageSize = null, $orientation = null);
- * @method initializePageSetup($pageSize = null, $orientation = null);
+ * (+) PdfInterface __construct();
+ * (+) void __destruct();
+ * (+) render();
+ * (+) setPageSizeLegal();
+ * (+) setPageAsPortrait();
+ * (+) setPageSizeLetter();
+ * (+) appendPageCSS($str);
+ * (+) setPageAsLandscape();
+ * (+) registerPageMargins();
+ * (+) appendPageContent($str);
+ * (+) setMetaTitle($str = null);
+ * (+) setFontSize($size = null);
+ * (+) setMetaAuthor($str = null);
+ * (+) setMetaCreator($str = null);
+ * (+) setMetaSubject($str = null);
+ * (+) setHeader(array $data = null);
+ * (+) setFooter(array $data = null);
+ * (+) setFilename($filename = null);
+ * (+) setFontType($fontname = null);
+ * (+) setPageSize($pageSize = null);
+ * (+) getFontFamily($fontname = null);
+ * (+) setMarginTop($marginTop = null);
+ * (+) setMargins(array $setting = null);
+ * (+) setMarginLeft($marginLeft = null);
+ * (+) setMarginRight($marginRight = null);
+ * (+) setMetaKeywords(array $words = null);
+ * (+) setMarginBottom($marginBottom = null);
+ * (+) setMarginHeader($marginHeader = null);
+ * (+) setMarginFooter($marginFooter = null);
+ * (+) setOutputDestination($destination = null);
+ * (+) registerPageFormat($pageSize = null, $orientation = null);
+ * (+) initializePageSetup($pageSize = null, $orientation = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
@@ -738,28 +738,26 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * Method implementations inserted.
+     * Method implementations inserted:
      *
-     * The notation below illustrates visibility: (+) @api, (-) protected or private.
-     *
-     * @method all();
-     * @method init();
-     * @method get($key);
-     * @method has($key);
-     * @method version();
-     * @method getClassName();
-     * @method getConst($key);
-     * @method set($key, $value);
-     * @method isString($str);
-     * @method getInstanceCount();
-     * @method getClassInterfaces();
-     * @method __call($callback, $parameters);
-     * @method getProperty($name, $key = null);
-     * @method doesFunctionExist($functionName);
-     * @method isStringKey($str, array $keys);
-     * @method throwExceptionError(array $error);
-     * @method setProperty($name, $value, $key = null);
-     * @method throwInvalidArgumentExceptionError(array $error);
+     * (+) all();
+     * (+) init();
+     * (+) get($key);
+     * (+) has($key);
+     * (+) version();
+     * (+) getClassName();
+     * (+) getConst($key);
+     * (+) set($key, $value);
+     * (+) isString($str);
+     * (+) getInstanceCount();
+     * (+) getClassInterfaces();
+     * (+) __call($callback, $parameters);
+     * (+) getProperty($name, $key = null);
+     * (+) doesFunctionExist($functionName);
+     * (+) isStringKey($str, array $keys);
+     * (+) throwExceptionError(array $error);
+     * (+) setProperty($name, $value, $key = null);
+     * (+) throwInvalidArgumentExceptionError(array $error);
      */
     use ServiceFunctions;
 }
