@@ -67,7 +67,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * @api
      */
-    const VERSION = '1.5.0';
+    const VERSION = '1.6.0';
 
     // --------------------------------------------------------------------------
 
@@ -106,7 +106,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     protected $mpdf               = null;
     protected $pageHeader         = array();
     protected $pageFooter         = array();
-    protected $characterEncoding  = 'utf-8';
+    protected $characterEncoding  = 'UTF-8';
     protected $fontSize           = 12;
     protected $fontType           = 'Times';
     protected $filename           = 'document.pdf';
@@ -198,7 +198,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
             ? $this->setProperty(
                 'mpdf',
                 new \mPDF(
-                    'utf-8',
+                    'UTF-8',
                     $pageSize.'-'.$orientation[0],
                     $this->fontSize,
                     $this->fontType,
@@ -211,7 +211,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
                     $orientation[0]
                 )
             )
-            : $this->setProperty('mpdf', new \mPDF('utf-8', 'Letter-P'));
+            : $this->setProperty('mpdf', new \mPDF('UTF-8', 'Letter-P'));
 
         return $this;
     }
