@@ -1,7 +1,7 @@
 {
     "name": "ucsdmath/pdf",
     "description": "A adapter for the mPDF print library",
-    "keywords": ["pdf", "mpdf", "print", "ucsdmath"],
+    "keywords": ["pdf","ucsdmath", "mpdf", "print", "component"],
     "homepage": "https://github.com/ucsdmath",
     "type": "library",
     "license": "MIT",
