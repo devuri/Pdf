@@ -1,13 +1,11 @@
 {
     "name": "ucsdmath/pdf",
+    "type": "library",
     "description": "A adapter for the mPDF print library",
     "keywords": ["pdf","ucsdmath", "mpdf", "print", "component"],
     "homepage": "https://github.com/ucsdmath",
-    "type": "library",
     "license": "MIT",
     "time": "2015-12-05",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "authors": [
         {"name": "Daryl Eisner", "email": "deisner@ucsd.edu"}
     ],
@@ -37,6 +35,8 @@
         "twig/twig": "Incorporate a flexible, fast, and secure template engine for PHP",
         "mikehaertl/pdftk2-precise-amd64": "pdftk 2 binary for Ubuntu 12.04 LTS (amd64)"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-master": "1.6.x-dev"
