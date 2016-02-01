@@ -44,7 +44,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function initializePageSetup($pageSize = null, $orientation = null);
+    public function initializePageSetup($pageSize = null, $orientation = null): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -57,7 +57,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setHeader(array $data);
+    public function setHeader(array $data): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -70,7 +70,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setFooter(array $data);
+    public function setFooter(array $data): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -83,7 +83,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setOutputDestination($destination);
+    public function setOutputDestination($destination): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setFilename($filename);
+    public function setFilename($filename): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -109,7 +109,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setFontType($fontname = null);
+    public function setFontType($fontname = null): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -122,14 +122,14 @@ interface PdfInterface
      *
      * @api
      */
-    public function appendPageContent($str);
+    public function appendPageContent($str): PdfInterface;
 
     // --------------------------------------------------------------------------
 
     /**
      * Render the PDF to output.
      *
-     * @return PdfInterface
+     * @return string
      *
      * @api
      */
@@ -146,7 +146,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setFontSize($size);
+    public function setFontSize($size): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -159,7 +159,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMarginTop($marginTop);
+    public function setMarginTop($marginTop): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -172,7 +172,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMarginRight($marginRight);
+    public function setMarginRight($marginRight): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -185,7 +185,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMarginBottom($marginBottom);
+    public function setMarginBottom($marginBottom): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -198,7 +198,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMarginLeft($marginLeft);
+    public function setMarginLeft($marginLeft): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -211,7 +211,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMarginHeader($marginHeader);
+    public function setMarginHeader($marginHeader): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -224,7 +224,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMarginFooter($marginFooter);
+    public function setMarginFooter($marginFooter): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -242,7 +242,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setMargins(array $setting);
+    public function setMargins(array $setting): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -255,7 +255,7 @@ interface PdfInterface
      *
      * @api
      */
-    public function setPageSize($pageSize);
+    public function setPageSize($pageSize): PdfInterface;
 
     // --------------------------------------------------------------------------
 
@@ -268,5 +268,5 @@ interface PdfInterface
      *
      * @api
      */
-    public function appendPageCSS($str);
+    public function appendPageCSS($str): PdfInterface;
 }
