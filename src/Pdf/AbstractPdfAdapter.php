@@ -871,4 +871,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * (+) throwInvalidArgumentExceptionError(array $error);
      */
     use ServiceFunctions;
+
+    // --------------------------------------------------------------------------
 }

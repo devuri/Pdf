@@ -269,4 +269,6 @@ interface PdfInterface
      * @api
      */
     public function appendPageCSS(string $str): PdfInterface;
+
+    // --------------------------------------------------------------------------
 }

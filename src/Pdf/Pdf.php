@@ -50,4 +50,6 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     {
         parent::__construct();
     }
+
+    // --------------------------------------------------------------------------
 }
