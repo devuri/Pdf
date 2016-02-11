@@ -75,7 +75,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Properties.
      *
-     * @var    mPDF         $mpdf               A mPDF Interface instance
+     * @var    mPDF         $mpdf               A mPDF Interface
      * @var    array        $pageHeader         A page header content to render
      * @var    array        $pageFooter         A page footer content to render
      * @var    string       $characterEncoding  A default character encoding
@@ -101,8 +101,8 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * @var    string       $outputTypes        A output type (e.g., 'I': inline, 'D': download, 'F': file, 'S': string)
      * @var    array        $metaKeywords       A document list of descriptive keywords (e.g., metadata)
      * @var    array        $storageRegister    A set of validation stored data elements
-     * @static PdfInterface $instance           A PdfInterface instance
-     * @static integer      $objectCount        A PdfInterface instance count
+     * @static PdfInterface $instance           A PdfInterface
+     * @static int          $objectCount        A PdfInterface count
      */
     protected $mpdf               = null;
     protected $pageHeader         = array();
@@ -186,20 +186,20 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Initialize a new PDF document by specifying page size and orientation.
      *
-     * @param array $pageSize     A page size
-     * @param array $orientation  A page orientation
+     * @param string $pageSize     A page size ('Letter','Legal','A4')
+     * @param string $orientation  A page orientation ('Portrait','Landscape')
      *
      * @return PdfInterface
      *
      * @api
      */
-    public function initializePageSetup($pageSize = null, $orientation = null): PdfInterface
+    public function initializePageSetup(string $pageSize = null, string $orientation = null): PdfInterface
     {
         in_array($pageSize, $this->pageTypes)
             ? $this->setProperty(
                 'mpdf',
                 new \mPDF(
-                    'UTF-8',
+                    'utf-8',
                     $pageSize.'-'.$orientation[0],
                     $this->fontSize,
                     $this->fontType,
@@ -304,13 +304,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the output destination.
      *
-     * @param array $destination  A destination to send the PDF
+     * @param string $destination  A destination to send the PDF
      *
      * @return PdfInterface
      *
      * @api
      */
-    public function setOutputDestination($destination): PdfInterface
+    public function setOutputDestination(string $destination): PdfInterface
     {
         /**
          * Destinations can be sent to the following:
@@ -333,13 +333,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the document filename.
      *
-     * @param array $filename  A default document filename
+     * @param string $filename  A default document filename
      *
      * @return PdfInterface
      *
      * @api
      */
-    public function setFilename($filename): PdfInterface
+    public function setFilename(string $filename): PdfInterface
     {
         $this->setProperty('filename', $filename);
 
@@ -349,9 +349,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the default document font.
+     *
+     * @param string $fontname  A font name ('Times','Helvetica','Courier')
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setFontType($fontname = null): PdfInterface
+    public function setFontType(string $fontname = null): PdfInterface
     {
         /**
          * Font sets to be used for PDF documents:
@@ -374,13 +380,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Return a specific font-family.
      *
-     * @param array $fontname  A font name type
+     * @param string $fontname  A font name type
      *
      * @return string
      *
      * @api
      */
-    protected function getFontFamily($fontname = null): string
+    protected function getFontFamily(string $fontname = null): string
     {
         /**
          * Font sets to be used for PDF documents:
@@ -400,9 +406,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Append the HTML content.
+     *
+     * @param string $str  A string data used for render
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function appendPageContent($str): PdfInterface
+    public function appendPageContent(string $str): PdfInterface
     {
         $this->setProperty('pageContent', $str);
         $this->mpdf->WriteHTML($this->pageContent);
@@ -428,9 +440,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the default font size.
+     *
+     * @param int $size  A font size (pt.)
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setFontSize($size): PdfInterface
+    public function setFontSize(int $size): PdfInterface
     {
         $this->fontSize = (int) $size;
         $this->mpdf->SetDefaultFontSize($this->fontSize);
@@ -441,9 +459,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the top page margin.
+     *
+     * @param int $marginTop  A top page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setMarginTop($marginTop): PdfInterface
+    public function setMarginTop(int $marginTop): PdfInterface
     {
         $this->setProperty('marginTop', $marginTop);
 
@@ -453,9 +477,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the right page margin.
+     *
+     * @param int $marginRight  A right page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setMarginRight($marginRight): PdfInterface
+    public function setMarginRight(int $marginRight): PdfInterface
     {
         $this->setProperty('marginRight', $marginRight);
 
@@ -465,9 +495,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the bottom page margin.
+     *
+     * @param int $marginBottom  A bottom page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setMarginBottom($marginBottom): PdfInterface
+    public function setMarginBottom(int $marginBottom): PdfInterface
     {
         $this->setProperty('marginBottom', $marginBottom);
 
@@ -477,9 +513,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the left page margin.
+     *
+     * @param int $marginLeft  A left page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setMarginLeft($marginLeft): PdfInterface
+    public function setMarginLeft(int $marginLeft): PdfInterface
     {
         $this->setProperty('marginLeft', $marginLeft);
 
@@ -489,9 +531,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the header page margin.
+     *
+     * @param int $marginHeader  A header page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setMarginHeader($marginHeader): PdfInterface
+    public function setMarginHeader(int $marginHeader): PdfInterface
     {
         $this->setProperty('marginHeader', $marginHeader);
 
@@ -501,9 +549,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the footer page margin.
+     *
+     * @param int $marginFooter  A footer page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function setMarginFooter($marginFooter): PdfInterface
+    public function setMarginFooter(int $marginFooter): PdfInterface
     {
         $this->setProperty('marginFooter', $marginFooter);
 
@@ -513,7 +567,18 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the page margins.
+     *
+     * @param int $marginTop     A top page margin
+     * @param int $marginRight   A right page margin
+     * @param int $marginBottom  A bottom page margin
+     * @param int $marginLeft    A left page margin
+     * @param int $marginHeader  A header page margin
+     * @param int $marginFooter  A footer page margin
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
     public function setMargins(array $setting): PdfInterface
     {
@@ -531,7 +596,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the page size.
+     *
+     * @param string $format  A page format type ['Letter','Legal', etc.]
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
     public function setPageSize($pageSize): PdfInterface
     {
@@ -544,9 +615,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Append a CSS style.
+     *
+     * @param string $str  A string data used for render
+     *
+     * @return PdfInterface
+     *
+     * @api
      */
-    public function appendPageCSS($str): PdfInterface
+    public function appendPageCSS(string $str): PdfInterface
     {
         $this->setProperty('pageCSS', $str);
         $this->mpdf->WriteCSS($this->pageCSS, 1);
@@ -564,7 +641,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * @return PdfInterface
      */
-    protected function registerPageFormat($pageSize = null, $orientation = null): PdfInterface
+    protected function registerPageFormat(string $pageSize = null, string $orientation = null): PdfInterface
     {
         in_array($pageSize, $this->pageTypes)
             ? $this->setProperty('pageSize', $pageSize)
@@ -578,9 +655,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set the page orientation.
+     *
+     * @param string $orientation  A page orientation ['Portrait','Landscape']
+     *
+     * @return PdfInterface
      */
-    public function setPageOrientation($orientation): PdfInterface
+    public function setPageOrientation(string $orientation): PdfInterface
     {
         $this->setProperty('pageOrientation', strtoupper($orientation[0]));
 
@@ -625,9 +706,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF Meta Title.
+     *
+     * @param string $str  The page title
+     *
+     * @return PdfInterface
      */
-    public function setMetaTitle($str): PdfInterface
+    public function setMetaTitle(string $str): PdfInterface
     {
         $this->setProperty('metaTitle', $str);
         $this->mpdf->SetTitle($this->metaTitle);
@@ -638,9 +723,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF Meta Author.
+     *
+     * @param string $str  The page author
+     *
+     * @return PdfInterface
      */
-    public function setMetaAuthor($str): PdfInterface
+    public function setMetaAuthor(string $str): PdfInterface
     {
         $this->setProperty('metaAuthor', $str);
         $this->mpdf->SetAuthor($this->metaAuthor);
@@ -651,9 +740,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF Meta Creator.
+     *
+     * @param string $str  The page creator
+     *
+     * @return PdfInterface
      */
-    public function setMetaCreator($str): PdfInterface
+    public function setMetaCreator(string $str): PdfInterface
     {
         $this->setProperty('metaCreator', $str);
         $this->mpdf->SetCreator($this->metaCreator);
@@ -664,9 +757,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF Meta Subject.
+     *
+     * @param string $str  The page subject
+     *
+     * @return PdfInterface
      */
-    public function setMetaSubject($str): PdfInterface
+    public function setMetaSubject(string $str): PdfInterface
     {
         $this->setProperty('metaSubject', $str);
         $this->mpdf->SetSubject($this->metaSubject);
@@ -677,7 +774,11 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF Meta Key Words.
+     *
+     * @param array $str  The page key words
+     *
+     * @return PdfInterface
      */
     public function setMetaKeywords(array $words): PdfInterface
     {
@@ -690,7 +791,9 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF to Letter Size.
+     *
+     * @return PdfInterface
      */
     public function setPageSizeLetter(): PdfInterface
     {
@@ -702,7 +805,9 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF to Legal Size.
+     *
+     * @return PdfInterface
      */
     public function setPageSizeLegal(): PdfInterface
     {
@@ -714,7 +819,9 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF to Landscape.
+     *
+     * @return PdfInterface
      */
     public function setPageAsLandscape(): PdfInterface
     {
@@ -727,7 +834,9 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * {@inheritdoc}
+     * Set PDF to Portrait.
+     *
+     * @return PdfInterface
      */
     public function setPageAsPortrait(): PdfInterface
     {
