@@ -257,7 +257,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     public function setFooter(array $data): PdfInterface
     {
-
         $string_right  = str_replace("{{page(\"# of #\")}}", '{PAGENO} of {nb}', $data['right']);
         $string_left   = str_replace("|", '<br>', $data['left']);
         $string_center = str_replace("|", '<br>', $data['center']);
@@ -582,7 +581,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     public function setMargins(array $setting): PdfInterface
     {
-
         $this->setProperty('marginTop', (int) $setting['marginTop']);
         $this->setProperty('marginRight', (int) $setting['marginRight']);
         $this->setProperty('marginBottom', (int) $setting['marginBottom']);
