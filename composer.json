@@ -18,12 +18,12 @@
         "mpdf/mpdf": "6.0.0",
         "smalot/pdfparser": "0.9.25",
         "mikehaertl/php-pdftk": "0.2.4",
-        "ucsdmath/functions": "1.6.x-dev"
+        "ucsdmath/functions": "1.6.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.4",
         "phpunit/phpunit": "5.2.6",
-        "ucsdmath/testing": "1.6.x-dev",
+        "ucsdmath/testing": "1.6.0",
         "squizlabs/php_codesniffer": "2.5.1"
     },
     "autoload": {
