@@ -13,6 +13,7 @@
 [![Total Downloads](https://poser.pugx.org/ucsdmath/Pdf/downloads)](https://packagist.org/packages/ucsdmath/Pdf)
 [![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Pdf/v/unstable)](https://packagist.org/packages/ucsdmath/Pdf)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/?branch=master)
+[![Quality Score](https://img.shields.io/scrutinizer/g/ucsdmath/Pdf.svg)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/build-status/master)
 
 Pdf is a testing and development library only. This is not to be used in a production.
