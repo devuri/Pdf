@@ -18,6 +18,10 @@
 
 Pdf is a testing and development library only. This is not to be used in a production.
 
+Copy this software from:
+- [Packagist.org](https://packagist.org/packages/ucsdmath/Pdf)
+- [Github.com](https://github.com/ucsdmath/Pdf)
+
 ## Installation using [Composer](http://getcomposer.org/)
 You can install the class ```Pdf``` with Composer and Packagist by
 adding the ucsdmath/pdf package to your composer.json file:
