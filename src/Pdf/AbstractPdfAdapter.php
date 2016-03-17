@@ -129,7 +129,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     protected $metaCreator        = null;
     protected $metaKeywords       = array();
     protected $storageRegister    = array();
-    protected $pageTypes          = ['Letter','Legal','A4','Tabloid'];
+    protected $pageTypes          = ['Letter', 'Legal', 'A4', 'Tabloid'];
     protected $outputTypes        = ['I', 'D', 'F', 'S'];
 
     protected $orientationTypes   = ['Portrait', 'Landscape'];
@@ -200,7 +200,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
                 'mpdf',
                 new \mPDF(
                     'utf-8',
-                    $pageSize.'-'.$orientation[0],
+                    $pageSize . '-' . $orientation[0],
                     $this->fontSize,
                     $this->fontType,
                     $this->marginLeft,
@@ -568,12 +568,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page margins.
      *
-     * @param int $marginTop     A top page margin
-     * @param int $marginRight   A right page margin
-     * @param int $marginBottom  A bottom page margin
-     * @param int $marginLeft    A left page margin
-     * @param int $marginHeader  A header page margin
-     * @param int $marginFooter  A footer page margin
+     * @param array $setting  A margin configiration setting
      *
      * @return PdfInterface
      *
@@ -596,7 +591,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page size.
      *
-     * @param string $format  A page format type ['Letter','Legal', etc.]
+     * @param string $pageSize  A page format/size type ['Letter','Legal', etc.]
      *
      * @return PdfInterface
      *
@@ -664,7 +659,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         $this->setProperty('pageOrientation', strtoupper($orientation[0]));
 
         $this->pageOrientation === 'L'
-            ? $this->setProperty('pageFormat', $this->pageSize.'-'.$this->pageOrientation)
+            ? $this->setProperty('pageFormat', $this->pageSize . '-' . $this->pageOrientation)
             : $this->setProperty('pageFormat', $this->pageSize);
 
         return $this;
@@ -774,7 +769,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set PDF Meta Key Words.
      *
-     * @param array $str  The page key words
+     * @param array $words  The page key words
      *
      * @return PdfInterface
      */
