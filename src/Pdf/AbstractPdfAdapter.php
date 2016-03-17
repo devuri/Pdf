@@ -76,7 +76,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * Properties.
      *
      * @var    mPDF         $mpdf               A mPDF Interface
-     * @var    array        $pageHeader         A page header content to render
+     * @var    string       $pageHeader         A page header content to render
      * @var    array        $pageFooter         A page footer content to render
      * @var    string       $characterEncoding  A default character encoding
      * @var    int          $fontSize           A default font size specified in points (pt. [12], 14, 18, etc.)
@@ -105,7 +105,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * @static int          $objectCount        A PdfInterface count
      */
     protected $mpdf               = null;
-    protected $pageHeader         = array();
+    protected $pageHeader         = null;
     protected $pageFooter         = array();
     protected $characterEncoding  = 'UTF-8';
     protected $fontSize           = 12;
