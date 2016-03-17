@@ -257,36 +257,11 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     public function setFooter(array $data): PdfInterface
     {
-        $string_right  = str_replace("{{page(\"# of #\")}}", '{PAGENO} of {nb}', $data['right']);
-        $string_left   = str_replace("|", '<br>', $data['left']);
-        $string_center = str_replace("|", '<br>', $data['center']);
-
         $footer = [
             'odd' => [
-                'L' => [
-                    'content'     => "<strong>$string_left</strong>",
-                    'font-size'   => 9,
-                    'font-style'  => '',
-                    'font-family' => 'Arial',
-                    'color'       => '#000000'
-                ],
-
-                'C' => [
-                    'content'     => "<strong>$string_center</strong>",
-                    'font-size'   => 9,
-                    'font-style'  => 'I',
-                    'font-family' => 'Arial',
-                    'color'       => '#000000'
-                ],
-
-                'R' => [
-                    'content'     => "<strong>$string_right</strong>",
-                    'font-size'   => 9,
-                    'font-style'  => '',
-                    'font-family' => 'Arial',
-                    'color'       => '#000000'
-                ],
-
+                $this->setFooterLeft(str_replace("|", '<br>', $data['left'])),
+                $this->setFooterCenter(str_replace("|", '<br>', $data['center'])),
+                $this->setFooterRight(str_replace("{{page(\"# of #\")}}", '{PAGENO} of {nb}', $data['right'])),
                 'line' => true,
             ],
             'even' => []
@@ -296,6 +271,74 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         $this->mpdf->SetFooter($this->pageFooter);
 
         return $this;
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Set the right page footer.
+     *
+     * @param string $str  A footer item
+     *
+     * @return PdfInterface
+     *
+     * @api
+     */
+    public function setFooterRight(string $str): array
+    {
+        return [
+            'R' => [
+                    'content'     => "<strong>$str</strong>",
+                    'font-size'   => 9,
+                    'font-style'  => '',
+                    'font-family' => 'Arial',
+                    'color'       => '#000000'
+                ]
+            ];
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Set the left page footer.
+     *
+     * @param string $str  A footer item
+     *
+     * @return PdfInterface
+     *
+     * @api
+     */
+    public function setFooterLeft(string $str): array
+    {
+        return ['L' => [
+                    'content'     => "<strong>$str</strong>",
+                    'font-size'   => 9,
+                    'font-style'  => '',
+                    'font-family' => 'Arial',
+                    'color'       => '#000000'
+                ]];
+    }
+
+    // --------------------------------------------------------------------------
+
+    /**
+     * Set the center page footer.
+     *
+     * @param string $str  A footer item
+     *
+     * @return PdfInterface
+     *
+     * @api
+     */
+    public function setFooterCenter(string $str): array
+    {
+        return ['C' => [
+                    'content'     => "<strong>$str</strong>",
+                    'font-size'   => 9,
+                    'font-style'  => 'I',
+                    'font-family' => 'Arial',
+                    'color'       => '#000000'
+                ]];
     }
 
     // --------------------------------------------------------------------------
