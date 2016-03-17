@@ -679,12 +679,12 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         $mpdf = $this->mpdf;
 
         /* Set the margins and page current page width */
-        $mpdf->SetLeftMargin($this->marginLeft);            /* Sets the Left page margin for the new document   */
-        $mpdf->SetTopMargin($this->marginTop);              /* Sets the Top page margin for the new document    */
-        $mpdf->SetRightMargin($this->marginRight);          /* Sets the Right page margin for the new document  */
-        $mpdf->SetAutoPageBreak(true, $this->marginBottom); /* Sets the Bottom page margin for the new document */
-        $mpdf->margin_header = $this->marginHeader;         /* Sets the Header page margin for the new document */
-        $mpdf->margin_footer = $this->marginFooter;         /* Sets the Footer page margin for the new document */
+        $mpdf->SetLeftMargin($this->marginLeft);
+        $mpdf->SetTopMargin($this->marginTop);
+        $mpdf->SetRightMargin($this->marginRight);
+        $mpdf->SetAutoPageBreak(true, $this->marginBottom);
+        $mpdf->margin_header = $this->marginHeader;
+        $mpdf->margin_footer = $this->marginFooter;
         $mpdf->orig_lMargin = $mpdf->DeflMargin = $mpdf->lMargin = $this->marginLeft;
         $mpdf->orig_tMargin = $mpdf->tMargin = $this->marginTop;
         $mpdf->orig_rMargin = $mpdf->DefrMargin = $mpdf->rMargin = $this->marginRight;
