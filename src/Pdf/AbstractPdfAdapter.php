@@ -26,22 +26,18 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  *
  * (+) PdfInterface __construct();
  * (+) void __destruct();
- * (+) render();
  * (+) setPageSizeLegal();
  * (+) setPageAsPortrait();
  * (+) setPageSizeLetter();
  * (+) appendPageCSS($str);
  * (+) setPageAsLandscape();
- * (+) registerPageMargins();
  * (+) appendPageContent($str);
  * (+) setMetaTitle($str = null);
- * (+) setFontSize($size = null);
  * (+) setMetaAuthor($str = null);
  * (+) setMetaCreator($str = null);
  * (+) setMetaSubject($str = null);
  * (+) setHeader(array $data = null);
  * (+) setFooter(array $data = null);
- * (+) setFilename($filename = null);
  * (+) setFontType($fontname = null);
  * (+) setPageSize($pageSize = null);
  * (+) getFontFamily($fontname = null);
@@ -53,9 +49,7 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) setMarginBottom($marginBottom = null);
  * (+) setMarginHeader($marginHeader = null);
  * (+) setMarginFooter($marginFooter = null);
- * (+) setOutputDestination($destination = null);
  * (+) registerPageFormat($pageSize = null, $orientation = null);
- * (+) initializePageSetup($pageSize = null, $orientation = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
@@ -184,42 +178,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * Initialize a new PDF document by specifying page size and orientation.
-     *
-     * @param string $pageSize     A page size ('Letter','Legal','A4')
-     * @param string $orientation  A page orientation ('Portrait','Landscape')
-     *
-     * @return PdfInterface
-     *
-     * @api
-     */
-    public function initializePageSetup(string $pageSize = null, string $orientation = null): PdfInterface
-    {
-        in_array($pageSize, $this->pageTypes)
-            ? $this->setProperty(
-                'mpdf',
-                new \mPDF(
-                    'utf-8',
-                    $pageSize . '-' . $orientation[0],
-                    $this->fontSize,
-                    $this->fontType,
-                    $this->marginLeft,
-                    $this->marginRight,
-                    $this->marginTop,
-                    $this->marginBottom,
-                    $this->marginHeader,
-                    $this->marginFooter,
-                    $orientation[0]
-                )
-            )
-            : $this->setProperty('mpdf', new \mPDF('UTF-8', 'Letter-P'));
-
-        return $this;
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
      * Set the page header.
      *
      * @param array $data  A list of header items ('left','right')
@@ -301,53 +259,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     // --------------------------------------------------------------------------
 
     /**
-     * Set the output destination.
-     *
-     * @param string $destination  A destination to send the PDF
-     *
-     * @return PdfInterface
-     *
-     * @api
-     */
-    public function setOutputDestination(string $destination): PdfInterface
-    {
-        /**
-         * Destinations can be sent to the following:
-         *    - I/B [Inline]   - Sends output to browser (browser plug-in is used if avaialble)
-         *                       If a $filename is given, the browser's "Save as..." option is provided
-         *    - D   [Download] - Forces browser to download the file
-         *    - F   [File]     - Saves the file to the server's filesystem cache
-         *    - S   [String]   - Returns the PDF as a string
-         */
-        $this->setProperty(
-            'outputDestination',
-            strtoupper($destination[0]) === 'B' ? 'I' : strtoupper($destination[0])
-        );
-
-        return $this;
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
-     * Set the document filename.
-     *
-     * @param string $filename  A default document filename
-     *
-     * @return PdfInterface
-     *
-     * @api
-     */
-    public function setFilename(string $filename): PdfInterface
-    {
-        $this->setProperty('filename', $filename);
-
-        return $this;
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
      * Set the default document font.
      *
      * @param string $fontname  A font name ('Times','Helvetica','Courier')
@@ -417,40 +328,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     {
         $this->setProperty('pageContent', $str);
         $this->mpdf->WriteHTML($this->pageContent);
-
-        return $this;
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
-     * Render the PDF to output.
-     *
-     * @return string
-     *
-     * @api
-     */
-    public function render(): string
-    {
-        /* finally render document */
-        return $this->mpdf->Output($this->filename, $this->outputDestination);
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
-     * Set the default font size.
-     *
-     * @param int $size  A font size (pt.)
-     *
-     * @return PdfInterface
-     *
-     * @api
-     */
-    public function setFontSize(int $size): PdfInterface
-    {
-        $this->fontSize = (int) $size;
-        $this->mpdf->SetDefaultFontSize($this->fontSize);
 
         return $this;
     }
@@ -661,37 +538,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         $this->pageOrientation === 'L'
             ? $this->setProperty('pageFormat', $this->pageSize . '-' . $this->pageOrientation)
             : $this->setProperty('pageFormat', $this->pageSize);
-
-        return $this;
-    }
-
-    // --------------------------------------------------------------------------
-
-    /**
-     * Registering the page size and margins.
-     *
-     * @return PdfInterface
-     *
-     * @api
-     */
-    public function registerPageMargins(): PdfInterface
-    {
-        $mpdf = $this->mpdf;
-
-        /* Set the margins and page current page width */
-        $mpdf->SetLeftMargin($this->marginLeft);
-        $mpdf->SetTopMargin($this->marginTop);
-        $mpdf->SetRightMargin($this->marginRight);
-        $mpdf->SetAutoPageBreak(true, $this->marginBottom);
-        $mpdf->margin_header = $this->marginHeader;
-        $mpdf->margin_footer = $this->marginFooter;
-        $mpdf->orig_lMargin = $mpdf->DeflMargin = $mpdf->lMargin = $this->marginLeft;
-        $mpdf->orig_tMargin = $mpdf->tMargin = $this->marginTop;
-        $mpdf->orig_rMargin = $mpdf->DefrMargin = $mpdf->rMargin = $this->marginRight;
-        $mpdf->orig_bMargin = $mpdf->bMargin = $this->marginBottom;
-        $mpdf->orig_hMargin = $mpdf->margin_header = $this->marginHeader;
-        $mpdf->orig_fMargin = $mpdf->margin_footer = $this->marginFooter;
-        $mpdf->pgwidth = $mpdf->w - $mpdf->lMargin - $mpdf->rMargin;
 
         return $this;
     }
