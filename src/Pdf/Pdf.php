@@ -209,4 +209,6 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
 
         return $this;
     }
+
+    // --------------------------------------------------------------------------
 }
