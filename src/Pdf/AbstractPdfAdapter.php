@@ -497,7 +497,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     public function appendPageCSS(string $str): PdfInterface
     {
         $this->setProperty('pageCSS', $str);
-        $this->mpdf->WriteCSS($this->pageCSS, 1);
+        $this->mpdf->WriteHTML($this->pageCSS, 1);
 
         return $this;
     }
