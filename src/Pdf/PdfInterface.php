@@ -232,12 +232,7 @@ interface PdfInterface
     /**
      * Set the page margins.
      *
-     * @param int $marginTop     A top page margin
-     * @param int $marginRight   A right page margin
-     * @param int $marginBottom  A bottom page margin
-     * @param int $marginLeft    A left page margin
-     * @param int $marginHeader  A header page margin
-     * @param int $marginFooter  A footer page margin
+     * @param array $setting  A margin configiration setting
      *
      * @return PdfInterface
      *
@@ -250,13 +245,13 @@ interface PdfInterface
     /**
      * Set the page size.
      *
-     * @param string $format  A page format type ['Letter','Legal', etc.]
+     * @param string $pageSize  A page format/size type ['Letter','Legal', etc.]
      *
      * @return PdfInterface
      *
      * @api
      */
-    public function setPageSize($pageSize): PdfInterface;
+    public function setPageSize(string $pageSize): PdfInterface;
 
     // --------------------------------------------------------------------------
 

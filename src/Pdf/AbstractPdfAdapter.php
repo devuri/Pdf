@@ -475,7 +475,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * @api
      */
-    public function setPageSize($pageSize): PdfInterface
+    public function setPageSize(string $pageSize): PdfInterface
     {
         $this->setProperty('pageSize', $pageSize);
         $this->registerPageFormat();
