@@ -35,8 +35,6 @@
         "twig/twig": "Incorporate a flexible, fast, and secure template engine for PHP",
         "mikehaertl/pdftk2-precise-amd64": "pdftk 2 binary for Ubuntu 12.04 LTS (amd64)"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-master": "1.7.x-dev"
