@@ -16,9 +16,15 @@
     "require": {
         "php": "^7.0",
         "mpdf/mpdf": "6.0.0",
+        "smalot/pdfparser": "0.9.25",
+        "mikehaertl/php-pdftk": "0.2.4",
         "ucsdmath/functions": "1.7.x-dev"
     },
     "require-dev": {
+        "mockery/mockery": "0.9.4",
+        "phpunit/phpunit": "5.3.2",
+        "ucsdmath/testing": "1.7.x-dev",
+        "squizlabs/php_codesniffer": "2.6.0"
     },
     "autoload": {
         "psr-4": {
@@ -29,6 +35,8 @@
         "twig/twig": "Incorporate a flexible, fast, and secure template engine for PHP",
         "mikehaertl/pdftk2-precise-amd64": "pdftk 2 binary for Ubuntu 12.04 LTS (amd64)"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "branch-alias": {
             "dev-master": "1.7.x-dev"
