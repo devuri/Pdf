@@ -15,7 +15,7 @@
     },
     "require": {
         "php": "^7.0",
-        "mpdf/mpdf": "6.1.0",
+        "mpdf/mpdf": "6.1.1",
         "smalot/pdfparser": "0.9.25",
         "mikehaertl/php-pdftk": "0.2.4",
         "ucsdmath/functions": "1.7.x-dev"
