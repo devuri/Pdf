@@ -45,13 +45,13 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
      */
     const VERSION = '1.7.0';
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Properties.
      */
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Constructor.
@@ -63,7 +63,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         parent::__construct();
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Initialize a new PDF document by specifying page size and orientation.
@@ -71,7 +71,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
      * @param string $pageSize     A page size ('Letter','Legal','A4')
      * @param string $orientation  A page orientation ('Portrait','Landscape')
      *
-     * @return PdfInterface
+     * @return PdfInterface The current interface
      *
      * @api
      */
@@ -99,7 +99,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Render the PDF to output.
@@ -114,12 +114,12 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         return $this->mpdf->Output($this->filename, $this->outputDestination);
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Registering the page size and margins.
      *
-     * @return PdfInterface
+     * @return PdfInterface The current interface
      *
      * @api
      */
@@ -145,14 +145,14 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the output destination.
      *
      * @param string $destination  A destination to send the PDF
      *
-     * @return PdfInterface
+     * @return PdfInterface The current interface
      *
      * @api
      */
@@ -174,14 +174,14 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the document filename.
      *
      * @param string $filename  A default document filename
      *
-     * @return PdfInterface
+     * @return PdfInterface The current interface
      *
      * @api
      */
@@ -192,14 +192,14 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the default font size.
      *
      * @param int $size  A font size (pt.)
      *
-     * @return PdfInterface
+     * @return PdfInterface The current interface
      *
      * @api
      */
@@ -211,5 +211,5 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }

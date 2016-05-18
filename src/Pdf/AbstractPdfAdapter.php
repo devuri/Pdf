@@ -65,7 +65,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     const VERSION = '1.7.0';
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Properties.
@@ -151,7 +151,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     protected static $instance    = null;
     protected static $objectCount = 0;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Constructor.
@@ -164,7 +164,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         static::$objectCount++;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Destructor.
@@ -176,14 +176,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         static::$objectCount--;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the page header.
      *
      * @param array $data  A list of header items ('left','right')
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -203,14 +203,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the page footer.
      *
      * @param array $data  A list of footer items ('left','center','right')
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -232,7 +232,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the content for the page footer.
@@ -257,14 +257,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         ];
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the default document font.
      *
      * @param string $fontname  A font name ('Times','Helvetica','Courier')
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -286,7 +286,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Return a specific font-family.
@@ -314,14 +314,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
             : $this->fontFamily['default'];
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Append the HTML content.
      *
      * @param string $str  A string data used for render
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -333,14 +333,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the top page margin.
      *
      * @param int $marginTop  A top page margin
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -351,14 +351,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the right page margin.
      *
      * @param int $marginRight  A right page margin
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -369,14 +369,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the bottom page margin.
      *
      * @param int $marginBottom  A bottom page margin
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -387,14 +387,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the left page margin.
      *
      * @param int $marginLeft  A left page margin
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -405,14 +405,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the header page margin.
      *
      * @param int $marginHeader  A header page margin
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -423,14 +423,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the footer page margin.
      *
      * @param int $marginFooter  A footer page margin
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -441,14 +441,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the page margins.
      *
      * @param array $setting  A margin configiration setting
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -464,14 +464,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the page size.
      *
      * @param string $pageSize  A page format/size type ['Letter','Legal', etc.]
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -483,14 +483,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Append a CSS style.
      *
      * @param string $str  A string data used for render
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      *
      * @api
      */
@@ -502,7 +502,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Generate and store a defined PDF page format.
@@ -510,7 +510,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * @param string $pageSize     A page format type ['Letter','Legal', etc.]
      * @param string $orientation  A page orientation ['Portrait','Landscape']
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     protected function registerPageFormat(string $pageSize = null, string $orientation = null): PdfInterface
     {
@@ -523,14 +523,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set the page orientation.
      *
      * @param string $orientation  A page orientation ['Portrait','Landscape']
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setPageOrientation(string $orientation): PdfInterface
     {
@@ -543,14 +543,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF Meta Title.
      *
      * @param string $str  The page title
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setMetaTitle(string $str): PdfInterface
     {
@@ -560,14 +560,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF Meta Author.
      *
      * @param string $str  The page author
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setMetaAuthor(string $str): PdfInterface
     {
@@ -577,14 +577,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF Meta Creator.
      *
      * @param string $str  The page creator
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setMetaCreator(string $str): PdfInterface
     {
@@ -594,14 +594,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF Meta Subject.
      *
      * @param string $str  The page subject
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setMetaSubject(string $str): PdfInterface
     {
@@ -611,14 +611,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF Meta Key Words.
      *
      * @param array $words  The page key words
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setMetaKeywords(array $words): PdfInterface
     {
@@ -628,12 +628,12 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF to Letter Size.
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setPageSizeLetter(): PdfInterface
     {
@@ -642,12 +642,12 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF to Legal Size.
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setPageSizeLegal(): PdfInterface
     {
@@ -656,12 +656,12 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF to Landscape.
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setPageAsLandscape(): PdfInterface
     {
@@ -671,12 +671,12 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Set PDF to Portrait.
      *
-     * @return PdfInterface
+     * @return PdfInterface The current instance
      */
     public function setPageAsPortrait(): PdfInterface
     {
@@ -686,7 +686,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
         return $this;
     }
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 
     /**
      * Method implementations inserted:
@@ -717,5 +717,5 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     use ServiceFunctions;
 
-    // --------------------------------------------------------------------------
+    //--------------------------------------------------------------------------
 }
