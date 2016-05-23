@@ -16,7 +16,11 @@ namespace UCSDMath\Pdf;
 /**
  * PdfInterface is the interface implemented by all Pdf classes.
  *
+ * Method noted as: (+) @api.
+ *
  * @author Daryl Eisner <deisner@ucsd.edu>
+ *
+ * @api
  */
 interface PdfInterface
 {

@@ -59,7 +59,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Constants.
      *
-     * @var string VERSION  A version number
+     * @var string VERSION A version number
      *
      * @api
      */
