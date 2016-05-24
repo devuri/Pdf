@@ -15,24 +15,23 @@ namespace UCSDMath\Pdf;
 
 /**
  * Pdf is the default implementation of {@link PdfInterface} which
- * provides routine pdf methods that are commonly used throughout the framework.
+ * provides routine Pdf methods that are commonly used in the framework.
  *
- * This is a adapter for the mPDF library.
+ * {@link AbstractPdfAdapter} is basically a adapter for the mPDF library
+ * which this class extends.
  *
- * Method list: (+) @api, (-) protected or private visibility. (+) @api, (-) protected or private.
+ * Method list: (+) @api, (-) protected or private visibility.
  *
  * (+) PdfInterface __construct();
  * (+) void __destruct();
- * (+) PdfInterface initializePageSetup($pageSize = null, $orientation = null);
  * (+) string render();
  * (+) PdfInterface registerPageMargins();
- * (+) PdfInterface setOutputDestination($destination = null);
- * (+) PdfInterface setFilename($filename = null);
- * (+) PdfInterface setFontSize($size = null);
+ * (+) PdfInterface setFontSize(int $size);
+ * (+) PdfInterface setFilename(string $filename);
+ * (+) PdfInterface setOutputDestination(string $destination);
+ * (+) PdfInterface initializePageSetup(string $pageSize = null, string $orientation = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
- *
- * @api
  */
 class Pdf extends AbstractPdfAdapter implements PdfInterface
 {
