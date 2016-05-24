@@ -19,38 +19,40 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
 
 /**
  * AbstractPdfAdapter provides an abstract base class implementation of {@link PdfInterface}.
- * Primarily, this services the fundamental implementations for all Pdf classes.
+ * This service groups a common code base implementation that Pdf extends.
  *
  * This component library is an adapter to the mPDF library.
  *
- * Method list: (+) @api, (-) protected or private visibility. (+) @api, (-) protected or private.
+ * Method list: (+) @api, (-) protected or private visibility.
  *
  * (+) PdfInterface __construct();
  * (+) void __destruct();
- * (+) setPageSizeLegal();
- * (+) setPageAsPortrait();
- * (+) setPageSizeLetter();
- * (+) appendPageCSS($str);
- * (+) setPageAsLandscape();
- * (+) appendPageContent($str);
- * (+) setMetaTitle($str = null);
- * (+) setMetaAuthor($str = null);
- * (+) setMetaCreator($str = null);
- * (+) setMetaSubject($str = null);
- * (+) setHeader(array $data = null);
- * (+) setFooter(array $data = null);
- * (+) setFontType($fontname = null);
- * (+) setPageSize($pageSize = null);
- * (+) getFontFamily($fontname = null);
- * (+) setMarginTop($marginTop = null);
- * (+) setMargins(array $setting = null);
- * (+) setMarginLeft($marginLeft = null);
- * (+) setMarginRight($marginRight = null);
- * (+) setMetaKeywords(array $words = null);
- * (+) setMarginBottom($marginBottom = null);
- * (+) setMarginHeader($marginHeader = null);
- * (+) setMarginFooter($marginFooter = null);
- * (+) registerPageFormat($pageSize = null, $orientation = null);
+ * (+) PdfInterface setPageSizeLegal();
+ * (+) PdfInterface setPageAsPortrait();
+ * (+) PdfInterface setPageSizeLetter();
+ * (+) PdfInterface setPageAsLandscape();
+ * (+) PdfInterface setFooter(array $data);
+ * (+) PdfInterface setHeader(array $data);
+ * (+) PdfInterface setMetaTitle(string $str);
+ * (+) PdfInterface appendPageCSS(string $str);
+ * (+) PdfInterface setMargins(array $setting);
+ * (+) PdfInterface setMetaAuthor(string $str);
+ * (+) PdfInterface setMarginTop(int $marginTop);
+ * (+) PdfInterface setMetaCreator(string $str);
+ * (+) PdfInterface setMetaSubject(string $str);
+ * (+) PdfInterface setPageSize(string $pageSize);
+ * (+) PdfInterface setMetaKeywords(array $words);
+ * (+) PdfInterface appendPageContent(string $str);
+ * (+) PdfInterface setMarginLeft(int $marginLeft);
+ * (+) PdfInterface setMarginRight(int $marginRight);
+ * (+) PdfInterface setMarginBottom(int $marginBottom);
+ * (+) PdfInterface setMarginHeader(int $marginHeader);
+ * (+) PdfInterface setMarginFooter(int $marginFooter);
+ * (+) PdfInterface setFontType(string $fontname = null);
+ * (+) array setFooterContent(string $column, string $str);
+ * (+) PdfInterface setPageOrientation(string $orientation);
+ * (-) string getFontFamily(string $fontname = null);
+ * (-) PdfInterface registerPageFormat(string $pageSize = null, string $orientation = null);
  *
  * @author Daryl Eisner <deisner@ucsd.edu>
  */
