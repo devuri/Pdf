@@ -72,86 +72,85 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Properties.
      *
-     * @var    mPDF         $mpdf               A mPDF Interface
-     * @var    string       $pageHeader         A page header content to render
-     * @var    array        $pageFooter         A page footer content to render
-     * @var    string       $characterEncoding  A default character encoding
-     * @var    int          $fontSize           A default font size specified in points (pt. [12], 14, 18, etc.)
-     * @var    string       $fontType           A default font typeface ([Times], '','','')
-     * @var    string       $filename           A default document or filename
-     * @var    string       $outputDestination  A default destination where to send the document ([I], D, F, S)
-     * @var    string       $pageCSS            A page style setting
-     * @var    string       $pageContent        A page content to render
-     * @var    string       $pageSize           A page size (['Letter'],'Legal','A4','Tabloid', etc.)
-     * @var    string       $pageFormat         A page size and orientation scheme (['Letter'],'Legal-L') based in millimetres (mm)
-     * @var    string       $pageOrientation    A setup orientation (['Portrait'],'Landscape')
-     * @var    int          $marginTop          A top margin size specified as length in millimetres (mm)
-     * @var    int          $marginRight        A right margin size specified as length in millimetres (mm)
-     * @var    int          $marginBottom       A bottom margin size specified as length in millimetres (mm)
-     * @var    int          $marginLeft         A left margin size specified as length in millimetres (mm)
-     * @var    int          $marginHeader       A header margin size specified as length in millimetres (mm)
-     * @var    int          $marginFooter       A footer margin size specified as length in millimetres (mm)
-     * @var    string       $metaTitle          A document title (e.g., metadata)
-     * @var    string       $metaAuthor         A document author (e.g., metadata)
-     * @var    string       $metaSubject        A document subject (e.g., metadata)
-     * @var    string       $metaCreator        A document creator (e.g., metadata)
-     * @var    string       $outputTypes        A output type (e.g., 'I': inline, 'D': download, 'F': file, 'S': string)
-     * @var    array        $metaKeywords       A document list of descriptive keywords (e.g., metadata)
-     * @var    array        $storageRegister    A set of validation stored data elements
-     * @static PdfInterface $instance           A PdfInterface
-     * @static int          $objectCount        A PdfInterface count
+     * @var    mPDF         $mpdf              A mPDF Interface
+     * @var    string       $pageHeader        A page header content to render
+     * @var    array        $pageFooter        A page footer content to render
+     * @var    string       $characterEncoding A default character encoding
+     * @var    int          $fontSize          A default font size specified in points (pt. [12], 14, 18, etc.)
+     * @var    string       $fontType          A default font typeface ([Times], '','','')
+     * @var    string       $filename          A default document or filename
+     * @var    string       $outputDestination A default destination where to send the document ([I], D, F, S)
+     * @var    string       $pageCSS           A page style setting
+     * @var    string       $pageContent       A page content to render
+     * @var    string       $pageSize          A page size (['Letter'],'Legal','A4','Tabloid', etc.)
+     * @var    string       $pageFormat        A page size and orientation scheme (['Letter'],'Legal-L') based in millimetres (mm)
+     * @var    string       $pageOrientation   A setup orientation (['Portrait'],'Landscape')
+     * @var    int          $marginTop         A top margin size specified as length in millimetres (mm)
+     * @var    int          $marginRight       A right margin size specified as length in millimetres (mm)
+     * @var    int          $marginBottom      A bottom margin size specified as length in millimetres (mm)
+     * @var    int          $marginLeft        A left margin size specified as length in millimetres (mm)
+     * @var    int          $marginHeader      A header margin size specified as length in millimetres (mm)
+     * @var    int          $marginFooter      A footer margin size specified as length in millimetres (mm)
+     * @var    string       $metaTitle         A document title (e.g., metadata)
+     * @var    string       $metaAuthor        A document author (e.g., metadata)
+     * @var    string       $metaSubject       A document subject (e.g., metadata)
+     * @var    string       $metaCreator       A document creator (e.g., metadata)
+     * @var    string       $outputTypes       A output type (e.g., 'I': inline, 'D': download, 'F': file, 'S': string)
+     * @var    array        $metaKeywords      A document list of descriptive keywords (e.g., metadata)
+     * @static PdfInterface $instance          A static instance PdfInterface
+     * @static int          $objectCount       A static count of PdfInterface
+     * @var    array        $storageRegister   A stored set of data structures used by this class
      */
-    protected $mpdf               = null;
-    protected $pageHeader         = null;
-    protected $pageFooter         = array();
-    protected $characterEncoding  = 'UTF-8';
-    protected $fontSize           = 12;
-    protected $fontType           = 'Times';
-    protected $filename           = 'document.pdf';
-    protected $outputDestination  = 'I';
-    protected $pageCSS            = null;
-    protected $pageContent        = null;
-    protected $pageSize           = 'Letter';
-    protected $pageOrientation    = 'Portrait';
-    protected $pageFormat         = 'Letter';
-    protected $marginTop          = 11;
-    protected $marginRight        = 15;
-    protected $marginBottom       = 14;
-    protected $marginLeft         = 11;
-    protected $marginHeader       = 5;
-    protected $marginFooter       = 9;
-    protected $metaTitle          = null;
-    protected $metaAuthor         = null;
-    protected $metaSubject        = null;
-    protected $metaCreator        = null;
-    protected $metaKeywords       = array();
-    protected $storageRegister    = array();
-    protected $pageTypes          = ['Letter', 'Legal', 'A4', 'Tabloid'];
-    protected $outputTypes        = ['I', 'D', 'F', 'S'];
-
-    protected $orientationTypes   = ['Portrait', 'Landscape'];
-    protected $fontFamily         = [
-            'arial' => "Arial, 'Helvetica Neue', Helvetica, sans-serif",
-            'times' => "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif",
-            'tahoma' => "Tahoma, Verdana, Segoe, Geneva, sans-serif",
-            'georgia' => "Georgia, Times, 'Times New Roman', serif",
-            'trebuchet' => "'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Tahoma, sans-serif",
-            'courier' => "'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace",
-            'lucida' => "'Lucida Sans Typewriter', 'Lucida Console', monaco, 'Bitstream Vera Sans Mono', monospace",
-            'lucida-bright' => "'Lucida Bright', Georgia, serif",
-            'palatino' => "'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Palatino, Georgia, serif",
-            'garamond' => "Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif",
-            'verdana' => "Verdana, Geneva, sans-serif",
-            'console' => "'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Bitstream Vera Sans Mono', monospace",
-            'monaco' => "'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Bitstream Vera Sans Mono', monospace",
-            'helvetica' => "'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif",
-            'calibri' => "Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif",
-            'avant-garde' => "'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif",
-            'cambria' => "Cambria, Georgia, serif",
-            'default' => "Arial, 'Helvetica Neue', Helvetica, sans-serif"
-        ];
+    protected $mpdf              = null;
+    protected $pageHeader        = null;
+    protected $pageFooter        = array();
+    protected $characterEncoding = 'UTF-8';
+    protected $fontSize          = 12;
+    protected $fontType          = 'Times';
+    protected $filename          = 'document.pdf';
+    protected $outputDestination = 'I';
+    protected $pageCSS           = null;
+    protected $pageContent       = null;
+    protected $pageSize          = 'Letter';
+    protected $pageOrientation   = 'Portrait';
+    protected $pageFormat        = 'Letter';
+    protected $marginTop         = 11;
+    protected $marginRight       = 15;
+    protected $marginBottom      = 14;
+    protected $marginLeft        = 11;
+    protected $marginHeader      = 5;
+    protected $marginFooter      = 9;
+    protected $metaTitle         = null;
+    protected $metaAuthor        = null;
+    protected $metaSubject       = null;
+    protected $metaCreator       = null;
+    protected $metaKeywords      = array();
+    protected $pageTypes         = ['Letter', 'Legal', 'A4', 'Tabloid'];
+    protected $outputTypes       = ['I', 'D', 'F', 'S'];
+    protected $orientationTypes  = ['Portrait', 'Landscape'];
+    protected $fontFamily        = [
+        'arial'         => "Arial, 'Helvetica Neue', Helvetica, sans-serif",
+        'times'         => "TimesNewRoman, 'Times New Roman', Times, Baskerville, Georgia, serif",
+        'tahoma'        => "Tahoma, Verdana, Segoe, Geneva, sans-serif",
+        'georgia'       => "Georgia, Times, 'Times New Roman', serif",
+        'trebuchet'     => "'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Helvetica, Tahoma, sans-serif",
+        'courier'       => "'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace",
+        'lucida'        => "'Lucida Sans Typewriter', 'Lucida Console', monaco, 'Bitstream Vera Sans Mono', monospace",
+        'lucida-bright' => "'Lucida Bright', Georgia, serif",
+        'palatino'      => "'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Palatino, Georgia, serif",
+        'garamond'      => "Garamond, Baskerville, 'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif",
+        'verdana'       => "Verdana, Geneva, sans-serif",
+        'console'       => "'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Bitstream Vera Sans Mono', monospace",
+        'monaco'        => "'Lucida Console', 'Lucida Sans Typewriter', Monaco, 'Bitstream Vera Sans Mono', monospace",
+        'helvetica'     => "'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif",
+        'calibri'       => "Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif",
+        'avant-garde'   => "'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif",
+        'cambria'       => "Cambria, Georgia, serif",
+        'default'       => "Arial, 'Helvetica Neue', Helvetica, sans-serif"
+    ];
     protected static $instance    = null;
     protected static $objectCount = 0;
+    protected $storageRegister    = [];
 
     //--------------------------------------------------------------------------
 

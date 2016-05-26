@@ -65,6 +65,18 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     //--------------------------------------------------------------------------
 
     /**
+     * Destructor.
+     *
+     * @api
+     */
+    public function __destruct()
+    {
+        parent::__destruct();
+    }
+
+    //--------------------------------------------------------------------------
+
+    /**
      * Initialize a new PDF document by specifying page size and orientation.
      *
      * @param string $pageSize     A page size ('Letter','Legal','A4')
