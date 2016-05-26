@@ -103,7 +103,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     protected $mpdf              = null;
     protected $pageHeader        = null;
-    protected $pageFooter        = array();
+    protected $pageFooter        = [];
     protected $characterEncoding = 'UTF-8';
     protected $fontSize          = 12;
     protected $fontType          = 'Times';
@@ -124,7 +124,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     protected $metaAuthor        = null;
     protected $metaSubject       = null;
     protected $metaCreator       = null;
-    protected $metaKeywords      = array();
+    protected $metaKeywords      = [];
     protected $pageTypes         = ['Letter', 'Legal', 'A4', 'Tabloid'];
     protected $outputTypes       = ['I', 'D', 'F', 'S'];
     protected $orientationTypes  = ['Portrait', 'Landscape'];
