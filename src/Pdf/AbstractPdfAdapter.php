@@ -161,8 +161,6 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      */
     public function __construct()
     {
-        static::$instance = new static;
-        static::$objectCount++;
     }
 
     //--------------------------------------------------------------------------
