@@ -27,9 +27,9 @@ interface PdfInterface
     /**
      * Constants.
      *
-     * @var string DEFAULT_CHARSET           A default charater setting
-     * @var string DEFAULT_PAGE_SIZE         A default page size
-     * @var string DEFAULT_PAGE_ORIENTATION  A default page orientation
+     * @var string DEFAULT_CHARSET          A default charater setting
+     * @var string DEFAULT_PAGE_SIZE        A default page size
+     * @var string DEFAULT_PAGE_ORIENTATION A default page orientation
      */
     const DEFAULT_CHARSET = 'UTF-8';
     const DEFAULT_PAGE_SIZE = 'Letter';
@@ -42,8 +42,8 @@ interface PdfInterface
     /**
      * Initialize a new PDF document by specifying page size and orientation.
      *
-     * @param string $pageSize     A page size ('Letter','Legal','A4')
-     * @param string $orientation  A page orientation ('Portrait','Landscape')
+     * @param string $pageSize    A page size ('Letter','Legal','A4')
+     * @param string $orientation A page orientation ('Portrait','Landscape')
      *
      * @return PdfInterface The current interface
      *
@@ -56,7 +56,7 @@ interface PdfInterface
     /**
      * Set the page header.
      *
-     * @param array $data  A list of header items ('left','right')
+     * @param array $data A list of header items ('left','right')
      *
      * @return PdfInterface The current interface
      *
@@ -69,7 +69,7 @@ interface PdfInterface
     /**
      * Set the page footer.
      *
-     * @param array $data  A list of footer items ('left','center','right')
+     * @param array $data A list of footer items ('left','center','right')
      *
      * @return PdfInterface The current interface
      *
@@ -82,7 +82,7 @@ interface PdfInterface
     /**
      * Set the output destination.
      *
-     * @param string $destination  A destination to send the PDF
+     * @param string $destination A destination to send the PDF
      *
      * @return PdfInterface The current interface
      *
@@ -95,7 +95,7 @@ interface PdfInterface
     /**
      * Set the document filename.
      *
-     * @param string $filename  A default document filename
+     * @param string $filename A default document filename
      *
      * @return PdfInterface The current interface
      *
@@ -108,7 +108,7 @@ interface PdfInterface
     /**
      * Set the default document font.
      *
-     * @param string $fontname  A font name ('Times','Helvetica','Courier')
+     * @param string $fontname A font name ('Times','Helvetica','Courier')
      *
      * @return PdfInterface The current interface
      *
@@ -121,7 +121,7 @@ interface PdfInterface
     /**
      * Append the HTML content.
      *
-     * @param string $str  A string data used for render
+     * @param string $str A string data used for render
      *
      * @return PdfInterface The current interface
      *
@@ -145,7 +145,7 @@ interface PdfInterface
     /**
      * Set the default font size.
      *
-     * @param int $size  A font size (pt.)
+     * @param int $size A font size (pt.)
      *
      * @return PdfInterface The current interface
      *
@@ -158,7 +158,7 @@ interface PdfInterface
     /**
      * Set the top page margin.
      *
-     * @param int $marginTop  A top page margin
+     * @param int $marginTop A top page margin
      *
      * @return PdfInterface The current interface
      *
@@ -171,7 +171,7 @@ interface PdfInterface
     /**
      * Set the right page margin.
      *
-     * @param int $marginRight  A right page margin
+     * @param int $marginRight A right page margin
      *
      * @return PdfInterface The current interface
      *
@@ -184,7 +184,7 @@ interface PdfInterface
     /**
      * Set the bottom page margin.
      *
-     * @param int $marginBottom  A bottom page margin
+     * @param int $marginBottom A bottom page margin
      *
      * @return PdfInterface The current interface
      *
@@ -197,7 +197,7 @@ interface PdfInterface
     /**
      * Set the left page margin.
      *
-     * @param int $marginLeft  A left page margin
+     * @param int $marginLeft A left page margin
      *
      * @return PdfInterface The current interface
      *
@@ -210,7 +210,7 @@ interface PdfInterface
     /**
      * Set the header page margin.
      *
-     * @param int $marginHeader  A header page margin
+     * @param int $marginHeader A header page margin
      *
      * @return PdfInterface The current interface
      *
@@ -223,7 +223,7 @@ interface PdfInterface
     /**
      * Set the footer page margin.
      *
-     * @param int $marginFooter  A footer page margin
+     * @param int $marginFooter A footer page margin
      *
      * @return PdfInterface The current interface
      *
@@ -236,7 +236,7 @@ interface PdfInterface
     /**
      * Set the page margins.
      *
-     * @param array $setting  A margin configiration setting
+     * @param array $setting A margin configiration setting
      *
      * @return PdfInterface The current interface
      *
@@ -249,7 +249,7 @@ interface PdfInterface
     /**
      * Set the page size.
      *
-     * @param string $pageSize  A page format/size type ['Letter','Legal', etc.]
+     * @param string $pageSize A page format/size type ['Letter','Legal', etc.]
      *
      * @return PdfInterface The current interface
      *
@@ -262,7 +262,7 @@ interface PdfInterface
     /**
      * Append a CSS style.
      *
-     * @param string $str  A string data used for render
+     * @param string $str A string data used for render
      *
      * @return PdfInterface The current interface
      *

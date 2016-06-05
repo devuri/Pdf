@@ -79,8 +79,8 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     /**
      * Initialize a new PDF document by specifying page size and orientation.
      *
-     * @param string $pageSize     A page size ('Letter','Legal','A4')
-     * @param string $orientation  A page orientation ('Portrait','Landscape')
+     * @param string $pageSize    A page size ('Letter','Legal','A4')
+     * @param string $orientation A page orientation ('Portrait','Landscape')
      *
      * @return PdfInterface The current interface
      *
@@ -161,7 +161,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     /**
      * Set the output destination.
      *
-     * @param string $destination  A destination to send the PDF
+     * @param string $destination A destination to send the PDF
      *
      * @return PdfInterface The current interface
      *
@@ -190,7 +190,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     /**
      * Set the document filename.
      *
-     * @param string $filename  A default document filename
+     * @param string $filename A default document filename
      *
      * @return PdfInterface The current interface
      *
@@ -208,7 +208,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     /**
      * Set the default font size.
      *
-     * @param int $size  A font size (pt.)
+     * @param int $size A font size (pt.)
      *
      * @return PdfInterface The current interface
      *
