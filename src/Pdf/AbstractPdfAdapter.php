@@ -61,7 +61,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Constants.
      *
-     * @var string VERSION A version number
+     * @var string VERSION The version number
      *
      * @api
      */
@@ -72,34 +72,34 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Properties.
      *
-     * @var    mPDF         $mpdf              A mPDF Interface
-     * @var    string       $pageHeader        A page header content to render
-     * @var    array        $pageFooter        A page footer content to render
-     * @var    string       $characterEncoding A default character encoding
-     * @var    int          $fontSize          A default font size specified in points (pt. [12], 14, 18, etc.)
-     * @var    string       $fontType          A default font typeface ([Times], '','','')
-     * @var    string       $filename          A default document or filename
-     * @var    string       $outputDestination A default destination where to send the document ([I], D, F, S)
-     * @var    string       $pageCSS           A page style setting
-     * @var    string       $pageContent       A page content to render
-     * @var    string       $pageSize          A page size (['Letter'],'Legal','A4','Tabloid', etc.)
-     * @var    string       $pageFormat        A page size and orientation scheme (['Letter'],'Legal-L') based in millimetres (mm)
-     * @var    string       $pageOrientation   A setup orientation (['Portrait'],'Landscape')
-     * @var    int          $marginTop         A top margin size specified as length in millimetres (mm)
-     * @var    int          $marginRight       A right margin size specified as length in millimetres (mm)
-     * @var    int          $marginBottom      A bottom margin size specified as length in millimetres (mm)
-     * @var    int          $marginLeft        A left margin size specified as length in millimetres (mm)
-     * @var    int          $marginHeader      A header margin size specified as length in millimetres (mm)
-     * @var    int          $marginFooter      A footer margin size specified as length in millimetres (mm)
-     * @var    string       $metaTitle         A document title (e.g., metadata)
-     * @var    string       $metaAuthor        A document author (e.g., metadata)
-     * @var    string       $metaSubject       A document subject (e.g., metadata)
-     * @var    string       $metaCreator       A document creator (e.g., metadata)
-     * @var    string       $outputTypes       A output type (e.g., 'I': inline, 'D': download, 'F': file, 'S': string)
-     * @var    array        $metaKeywords      A document list of descriptive keywords (e.g., metadata)
-     * @static PdfInterface $instance          A static instance PdfInterface
-     * @static int          $objectCount       A static count of PdfInterface
-     * @var    array        $storageRegister   A stored set of data structures used by this class
+     * @var    mPDF         $mpdf              The mPDF Interface
+     * @var    string       $pageHeader        The page header content to render
+     * @var    array        $pageFooter        The page footer content to render
+     * @var    string       $characterEncoding The default character encoding
+     * @var    int          $fontSize          The default font size specified in points (pt. [12], 14, 18, etc.)
+     * @var    string       $fontType          The default font typeface ([Times], '','','')
+     * @var    string       $filename          The default document or filename
+     * @var    string       $outputDestination The default destination where to send the document ([I], D, F, S)
+     * @var    string       $pageCSS           The page style setting
+     * @var    string       $pageContent       The page content to render
+     * @var    string       $pageSize          The page size (['Letter'],'Legal','A4','Tabloid', etc.)
+     * @var    string       $pageFormat        The page size and orientation scheme (['Letter'],'Legal-L') based in millimetres (mm)
+     * @var    string       $pageOrientation   The setup orientation (['Portrait'],'Landscape')
+     * @var    int          $marginTop         The top margin size specified as length in millimetres (mm)
+     * @var    int          $marginRight       The right margin size specified as length in millimetres (mm)
+     * @var    int          $marginBottom      The bottom margin size specified as length in millimetres (mm)
+     * @var    int          $marginLeft        The left margin size specified as length in millimetres (mm)
+     * @var    int          $marginHeader      The header margin size specified as length in millimetres (mm)
+     * @var    int          $marginFooter      The footer margin size specified as length in millimetres (mm)
+     * @var    string       $metaTitle         The document title (e.g., metadata)
+     * @var    string       $metaAuthor        The document author (e.g., metadata)
+     * @var    string       $metaSubject       The document subject (e.g., metadata)
+     * @var    string       $metaCreator       The document creator (e.g., metadata)
+     * @var    string       $outputTypes       The output type (e.g., 'I': inline, 'D': download, 'F': file, 'S': string)
+     * @var    array        $metaKeywords      The document list of descriptive keywords (e.g., metadata)
+     * @static PdfInterface $instance          The static instance PdfInterface
+     * @static int          $objectCount       The static count of PdfInterface
+     * @var    array        $storageRegister   The stored set of data structures used by this class
      */
     protected $mpdf              = null;
     protected $pageHeader        = null;
@@ -180,7 +180,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page header.
      *
-     * @param array $data A list of header items ('left','right')
+     * @param array $data The list of header items ('left','right')
      *
      * @return PdfInterface The current instance
      *
@@ -207,7 +207,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page footer.
      *
-     * @param array $data A list of footer items ('left','center','right')
+     * @param array $data The list of footer items ('left','center','right')
      *
      * @return PdfInterface The current instance
      *
@@ -236,8 +236,8 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the content for the page footer.
      *
-     * @param string $str    A footer content item
-     * @param string $column A footer placement [Right, Center, Left]
+     * @param string $str    The footer content item
+     * @param string $column The footer placement [Right, Center, Left]
      *
      * @return array
      *
@@ -261,7 +261,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the default document font.
      *
-     * @param string $fontname A font name ('Times','Helvetica','Courier')
+     * @param string $fontname The font name ('Times','Helvetica','Courier')
      *
      * @return PdfInterface The current instance
      *
@@ -290,7 +290,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Return a specific font-family.
      *
-     * @param string $fontname A font name type
+     * @param string $fontname The font name type
      *
      * @return string
      *
@@ -318,7 +318,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Append the HTML content.
      *
-     * @param string $str A string data used for render
+     * @param string $str The string data used for render
      *
      * @return PdfInterface The current instance
      *
@@ -337,7 +337,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the top page margin.
      *
-     * @param int $marginTop A top page margin
+     * @param int $marginTop The top page margin
      *
      * @return PdfInterface The current instance
      *
@@ -355,7 +355,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the right page margin.
      *
-     * @param int $marginRight A right page margin
+     * @param int $marginRight The right page margin
      *
      * @return PdfInterface The current instance
      *
@@ -373,7 +373,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the bottom page margin.
      *
-     * @param int $marginBottom A bottom page margin
+     * @param int $marginBottom The bottom page margin
      *
      * @return PdfInterface The current instance
      *
@@ -391,7 +391,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the left page margin.
      *
-     * @param int $marginLeft A left page margin
+     * @param int $marginLeft The left page margin
      *
      * @return PdfInterface The current instance
      *
@@ -409,7 +409,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the header page margin.
      *
-     * @param int $marginHeader A header page margin
+     * @param int $marginHeader The header page margin
      *
      * @return PdfInterface The current instance
      *
@@ -427,7 +427,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the footer page margin.
      *
-     * @param int $marginFooter A footer page margin
+     * @param int $marginFooter The footer page margin
      *
      * @return PdfInterface The current instance
      *
@@ -445,7 +445,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page margins.
      *
-     * @param array $setting A margin configiration setting
+     * @param array $setting The margin configiration setting
      *
      * @return PdfInterface The current instance
      *
@@ -468,7 +468,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page size.
      *
-     * @param string $pageSize A page format/size type ['Letter','Legal', etc.]
+     * @param string $pageSize The page format/size type ['Letter','Legal', etc.]
      *
      * @return PdfInterface The current instance
      *
@@ -487,7 +487,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Append a CSS style.
      *
-     * @param string $str A string data used for render
+     * @param string $str The string data used for render
      *
      * @return PdfInterface The current instance
      *
@@ -506,8 +506,8 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Generate and store a defined PDF page format.
      *
-     * @param string $pageSize    A page format type ['Letter','Legal', etc.]
-     * @param string $orientation A page orientation ['Portrait','Landscape']
+     * @param string $pageSize    The page format type ['Letter','Legal', etc.]
+     * @param string $orientation The page orientation ['Portrait','Landscape']
      *
      * @return PdfInterface The current instance
      */
@@ -527,7 +527,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page orientation.
      *
-     * @param string $orientation A page orientation ['Portrait','Landscape']
+     * @param string $orientation The page orientation ['Portrait','Landscape']
      *
      * @return PdfInterface The current instance
      */
