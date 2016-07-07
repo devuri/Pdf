@@ -17,8 +17,8 @@
 </center>
 </td></tr></table>
 
-|Scrutinizer|Latest|PHP|Usage|Develop|Code Quality|License|
-|-----------|------|---|-----|-------|------------|-------|
+|Scrutinizer|Latest|PHP|Usage|Development|Code Quality|License|
+|-----------|------|---|-----|-----------|------------|-------|
 |[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/build-status/master)|[![Latest Stable Version](https://poser.pugx.org/ucsdmath/Pdf/v/stable)](https://packagist.org/packages/ucsdmath/Pdf)|[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)|[![Total Downloads](https://poser.pugx.org/ucsdmath/Pdf/downloads)](https://packagist.org/packages/ucsdmath/Pdf)|[![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Pdf/v/unstable)](https://packagist.org/packages/ucsdmath/Pdf)|[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/?branch=master)|[![License](https://poser.pugx.org/ucsdmath/Pdf/license)](https://packagist.org/packages/ucsdmath/Pdf)|
 
 Pdf is a testing and development library only. This is not to be used in a production.
