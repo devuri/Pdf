@@ -4,25 +4,42 @@
     <td width="310"><img height="160" width="310"alt="UCSDMath - Mathlink" src="https://github.com/ucsdmath/Testing/blob/master/ucsdmath-logo.png"></td>
     <td><h3>A Development Project in PHP</h3><p><strong>UCSDMath</strong> provides a testing framework for general internal Intranet software applications for the UCSD, Department of Mathematics. This is used for development and testing only. [not for production]</p>
 
-<table style="width:550px;"><tr>
-    <td width="120">Travis CI</td>
-    <td width="250">SensioLabs</td>
-    <td width="180">Dependencies</td>
-</tr><tr>
-    <td width="120">
+<table width="550"><tr><td width="120"><b>Travis CI</b></td><td width="250"><b>SensioLabs</b></td><td width="180"><b>Dependencies</b></td></tr><tr>
+    <td width="120" align="center">
         <a href="https://travis-ci.org/ucsdmath/Pdf">
-        <img style="float: left; margin: 0px 0px 15px 15px;" src="https://travis-ci.org/ucsdmath/Pdf.svg?branch=master"></a></td>
+        <img src="https://travis-ci.org/ucsdmath/Pdf.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a></td>
     <td width="250" align="center">
-        <a href="https://insight.sensiolabs.com/projects/bdebff5a-94b4-44e8-b6cb-35a8d4626f3b">
-        <img src="https://insight.sensiolabs.com/projects/bdebff5a-94b4-44e8-b6cb-35a8d4626f3b/big.png" style="float: right; margin: 0px 0px 15px 15px;" width="212" height="51"></a></td>
-    <td width="180">
+        <a href="https://insight.sensiolabs.com/projects/888888888888">
+        <img src="https://insight.sensiolabs.com/projects/8888888888888/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
+    <td width="180" align="center">
         <a href="https://www.versioneye.com/php/ucsdmath:pdf">
-        <img style="float: left; margin: 0px 0px 15px 15px;" src="https://www.versioneye.com/php/ucsdmath:pdf/badge.png?branch=master"></a></td>
-</tr></table></td></tr></table>
-
-|Scrutinizer|Latest|PHP|Usage|Development|Code Quality|License|
-|-----------|------|---|-----|-----------|------------|-------|
-|[![Build Status](https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/build.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/build-status/master)|[![Latest Stable Version](https://poser.pugx.org/ucsdmath/Pdf/v/stable)](https://packagist.org/packages/ucsdmath/Pdf)|[![Minimum PHP Version](https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg)](https://php.net/)|[![Total Downloads](https://poser.pugx.org/ucsdmath/Pdf/downloads)](https://packagist.org/packages/ucsdmath/Pdf)|[![Latest Unstable Version](https://poser.pugx.org/ucsdmath/Pdf/v/unstable)](https://packagist.org/packages/ucsdmath/Pdf)|[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ucsdmath/Pdf/?branch=master)|[![License](https://poser.pugx.org/ucsdmath/Pdf/license)](https://packagist.org/packages/ucsdmath/Pdf)|
+        <img src="https://www.versioneye.com/php/ucsdmath:pdf/badge.png?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a><br>
+        <a href="https://codeclimate.com/github/ucsdmath/Pdf">
+        <img src="https://codeclimate.com/github/ucsdmath/Pdf/badges/gpa.svg"></a>
+</td></tr></table></td></tr></table>
+<table width="880"><tr><td width="116" align="center"><b>Scrutinizer</b></td><td width="112" align="center"><b>Latest</b></td><td width="108" align="center"><b>PHP</b></td><td width="150" align="center"><b>Usage</b></td><td width="142" align="center"><b>Development</b></td><td width="142" align="center"><b>Code Quality</b></td><td width="110" align="center"><b>License</b></td></tr><tr>
+    <td valign="top" width="116" align="center">
+        <a href="https://scrutinizer-ci.com/g/ucsdmath/Pdf/build-status/master">
+        <img src="https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/build.png?b=master"></a></td>
+    <td valign="top" width="112" align="center">
+        <a href="https://packagist.org/packages/ucsdmath/Pdf">
+        <img src="https://poser.pugx.org/ucsdmath/Pdf/v/stable"></a></td>
+    <td valign="top" width="108" align="center">
+        <a href="https://php.net/">
+        <img src="https://img.shields.io/badge/php-%3E%3D%207.0-8892BF.svg"></a></td>
+    <td valign="top" width="150" align="center">
+        <a href="https://packagist.org/packages/ucsdmath/Pdf">
+        <img src="https://poser.pugx.org/ucsdmath/Pdf/downloads"></a></td>
+    <td valign="top" width="142" align="center">
+        <a href="https://packagist.org/packages/ucsdmath/Pdf">
+        <img src="https://poser.pugx.org/ucsdmath/Pdf/v/unstable"></a></td>
+    <td valign="top" width="142" align="center">
+        <a href="https://scrutinizer-ci.com/g/ucsdmath/Pdf/?branch=master">
+        <img src="https://scrutinizer-ci.com/g/ucsdmath/Pdf/badges/quality-score.png?b=master"></a></td>
+    <td valign="top" width="110" align="center">
+        <a href="https://packagist.org/packages/ucsdmath/Pdf">
+        <img src="https://poser.pugx.org/ucsdmath/Pdf/license"></a></td>
+</tr></table>
 
 Pdf is a testing and development library only. This is not to be used in a production.
 Many features of this component have not been developed but are planned for future implementation.  UCSDMath components are written to be adapters of great developments such as Symfony, Twig, Doctrine, etc. This is a learning and experimental library only.
