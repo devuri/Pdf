@@ -9,8 +9,8 @@
         <a href="https://travis-ci.org/ucsdmath/Pdf">
         <img src="https://travis-ci.org/ucsdmath/Pdf.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a></td>
     <td width="250" align="center">
-        <a href="https://insight.sensiolabs.com/projects/888888888888">
-        <img src="https://insight.sensiolabs.com/projects/8888888888888/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
+        <a href="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4">
+        <img src="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
     <td width="180" align="center">
         <a href="https://www.versioneye.com/php/ucsdmath:pdf">
         <img src="https://www.versioneye.com/php/ucsdmath:pdf/badge.png?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a><br>
