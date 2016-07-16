@@ -7,7 +7,9 @@
 <table width="550"><tr><td width="120"><b>Travis CI</b></td><td width="250"><b>SensioLabs</b></td><td width="180"><b>Dependencies</b></td></tr><tr>
     <td width="120" align="center">
         <a href="https://travis-ci.org/ucsdmath/Pdf">
-        <img src="https://travis-ci.org/ucsdmath/Pdf.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a></td>
+        <img src="https://travis-ci.org/ucsdmath/Pdf.svg?branch=master" style="float: left; margin: 0px 0px 10px 10px;"></a><br>
+        <a href="https://www.codacy.com/app/ucsdmath-project/Pdf">
+        <img src="https://api.codacy.com/project/badge/Grade/f56a17b8f30b4ce785130f10716a9ad6"></a></td>
     <td width="250" align="center">
         <a href="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4">
         <img src="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
