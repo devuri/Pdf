@@ -14,8 +14,8 @@
         <a href="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4">
         <img src="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
     <td width="180" align="center">
-        <a href="https://www.versioneye.com/php/ucsdmath:pdf">
-        <img src="https://www.versioneye.com/php/ucsdmath:pdf/dev-master/badge.png?style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
+        <a href='https://www.versioneye.com/user/projects/577fbaa65bb139003969daa5'>
+        <img src='https://www.versioneye.com/user/projects/577fbaa65bb139003969daa5/badge.png?style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
         <a href="https://codeclimate.com/github/ucsdmath/Pdf">
         <img src="https://codeclimate.com/github/ucsdmath/Pdf/badges/gpa.svg"></a>
 </td></tr></table></td></tr></table>
