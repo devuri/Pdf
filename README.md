@@ -11,8 +11,8 @@
         <a href="https://www.codacy.com/app/ucsdmath-project/Pdf">
         <img src="https://api.codacy.com/project/badge/Grade/f56a17b8f30b4ce785130f10716a9ad6"></a></td>
     <td width="250" align="center">
-        <a href="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4">
-        <img src="https://insight.sensiolabs.com/projects/e89418e0-5b48-4b55-80ad-35c657c797e4/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
+        <a href="https://insight.sensiolabs.com/projects/3bcdb84d-acff-42b3-ae7f-79823b8a8ad6">
+        <img src="https://insight.sensiolabs.com/projects/3bcdb84d-acff-42b3-ae7f-79823b8a8ad6/big.png" style="float: right; margin: 0px 0px 10px 10px;" width="212" height="51"></a></td>
     <td width="180" align="center">
         <a href="https://www.versioneye.com/user/projects/577fbaa65bb139003969daa5">
         <img src="https://www.versioneye.com/user/projects/577fbaa65bb139003969daa5/badge.png?style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
