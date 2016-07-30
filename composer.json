@@ -1,11 +1,11 @@
 {
     "name": "ucsdmath/pdf",
     "type": "library",
-    "description": "A adapter for the mPDF print library",
+    "description": "A adapter for the mPDF print library.",
     "keywords": ["pdf","ucsdmath", "mpdf", "print", "component"],
     "homepage": "https://github.com/ucsdmath",
     "license": "MIT",
-    "time": "2016-07-03",
+    "time": "2016-07-31",
     "authors": [
         {
             "name": "Daryl Eisner",
