@@ -16,12 +16,12 @@
         "php": ">=7.0.0",
         "mpdf/mpdf": "6.1.2",
         "nesbot/carbon": "1.21.0",
-        "ucsdmath/functions": "1.8.x-dev"
+        "ucsdmath/functions": "1.8.0"
     },
     "require-dev": {
         "mockery/mockery": "0.9.5",
         "phpunit/phpunit": "5.4.8",
-        "ucsdmath/testing": "1.8.x-dev",
+        "ucsdmath/testing": "1.8.0",
         "squizlabs/php_codesniffer": "2.6.2"
     },
     "autoload": {
