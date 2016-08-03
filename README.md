@@ -17,7 +17,7 @@
         <a href="https://www.versioneye.com/user/projects/577fbaa65bb139003969daa5">
         <img src="https://www.versioneye.com/user/projects/577fbaa65bb139003969daa5/badge.png?style=flat" style="float:left;margin:0px 0px 10px 10px;"></a><br>
         <a href="https://codeclimate.com/github/ucsdmath/Pdf">
-        <img src="https://codeclimate.com/github/ucsdmath/Pdf/badges/gpa.svg"></a>
+        <img src="https://codeclimate.com/github/ucsdmath/Pdf/badges/gpa.svg"></a><br>
         <a href="https://travis-ci.org/ucsdmath/Pdf">
         <img src="http://php7ready.timesplinter.ch/ucsdmath/Pdf/badge.svg"></a>
 </td></tr></table></td></tr></table>
