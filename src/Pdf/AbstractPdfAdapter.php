@@ -207,16 +207,16 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page footer.
      *
-     * {@note: printing even/odd pages not available yet.}
+     * {@note: printing even/odd pages is not available yet.}
      *
-     * @param array $data The list of footer items ('left','center','right')
-     * @param array $side The option for unique even/odd page printing ('both','even','odd')
+     * @param array  $data The list of footer items ('left','center','right')
+     * @param string $side The option for unique even/odd page printing ('both','even','odd')
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setFooter(array $data, $side = 'both'): PdfInterface
+    public function setFooter(array $data, string $side = 'both'): PdfInterface
     {
         $data = array_change_key_case($data, CASE_LOWER);
 
