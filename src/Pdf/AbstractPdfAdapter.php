@@ -207,26 +207,28 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page footer.
      *
+     * {@note: printing even/odd pages not available yet.}
+     *
      * @param array $data The list of footer items ('left','center','right')
+     * @param array $side The option for unique even/odd page printing ('both','even','odd')
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setFooter(array $data): PdfInterface
+    public function setFooter(array $data, $side = 'both'): PdfInterface
     {
-        $footer = [
-            'odd' => [
-                $this->setFooterContent('Left', str_replace("|", '<br>', $data['left'])),
-                $this->setFooterContent('Center', str_replace("|", '<br>', $data['center'])),
-                $this->setFooterContent('Right', str_replace("{{page(\"# of #\")}}", '{PAGENO} of {nb}', $data['right'])),
-                'line' => true,
-            ],
-            'even' => []
-        ];
+        $data = array_change_key_case($data, CASE_LOWER);
 
-        $this->setProperty('pageFooter', $footer);
-        $this->mpdf->SetFooter($this->pageFooter);
+        $footer = ('<table width="100%" style="vertical-align: bottom; font-family: arial; font-size: 9pt; color: #000000; font-weight: bold; font-style: italic;"><tr>'.
+                        $this->setFooterContent('left', (string) $data['left']).
+                        $this->setFooterContent('center', (string) $data['center']).
+                        $this->setFooterContent('right', (string) $data['right']).
+                    '</tr></table>');
+
+        $this->setProperty('pageFooter', $footer, $side);
+        $this->mpdf->mirrorMargins = false;  // if unique sides -> true
+        $this->mpdf->SetHTMLFooter($this->getProperty('pageFooter', $side), 'O'); // Odd = 'O', Even = 'E'
 
         return $this;
     }
@@ -236,24 +238,19 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the content for the page footer.
      *
-     * @param string $str    The footer content item
-     * @param string $column The footer placement [Right, Center, Left]
+     * @param string $str       The footer content item
+     * @param string $alignment The footer placement [right, center, left]
      *
-     * @return array
+     * @return string
      *
      * @api
      */
-    public function setFooterContent(string $column, string $str): array
+    public function setFooterContent(string $alignment, string $str): string
     {
-        return [
-            mb_substr($column, 0, 1, 'utf-8') => [
-                'content'     => "<strong>$str</strong>",
-                'font-size'   => 9,
-                'font-style'  => '',
-                'font-family' => 'Arial',
-                'color'       => '#000000'
-            ]
-        ];
+        return '<td width="33%" align="'.$alignment.'">'.
+               '<span style="font-weight: bold; font-style: italic;">'.
+                   str_replace(['{{ page("# of #") }}', '{{page("# of #")}}'], ['{PAGENO} of {nb}','{PAGENO} of {nb}'], $str).
+               '</span></td>';
     }
 
     //--------------------------------------------------------------------------
