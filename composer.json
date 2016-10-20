@@ -5,7 +5,7 @@
     "keywords": ["pdf","ucsdmath", "mpdf", "print", "component"],
     "homepage": "https://github.com/ucsdmath",
     "license": "MIT",
-    "time": "2016-08-21",
+    "time": "2016-10-20",
     "authors": [
         {
             "name": "Daryl Eisner",
