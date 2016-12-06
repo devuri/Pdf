@@ -42,7 +42,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
      *
      * @api
      */
-    const VERSION = '1.11.0';
+    const VERSION = '1.12.0';
 
     //--------------------------------------------------------------------------
 
