@@ -225,10 +225,9 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     //--------------------------------------------------------------------------
 
     /**
-     *
      * Import external file pages and merge with current.
      *
-     * @param string $filePath
+     * @param string $filePath The path of the file to merge
      *
      * @return PdfInterface The current interface
      *
@@ -236,6 +235,9 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
      */
     public function importPages(string $filePath): PdfInterface
     {
+        if (!is_file($filePath)) {
+            throwÊnewÊ\Exception(sprintf('The parameter "%s" is not a file or does not exist', $filePath));
+        }
         $numberPagesCurrentFile = count($this->mpdf->pages);
         $numberPagesExternalFile = $this->mpdf->setSourceFile($filePath);
         $numberTotalPages = $numberPagesCurrentFile + $numberPagesExternalFile;
