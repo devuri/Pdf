@@ -236,7 +236,7 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     public function importPages(string $filePath): PdfInterface
     {
         if (!is_file($filePath)) {
-            throwÊnewÊ\Exception(sprintf('The parameter "%s" is not a file or does not exist', $filePath));
+            throw new \Exception(sprintf('The parameter "%s" is not a file or does not exist', $filePath));
         }
         $numberPagesCurrentFile = count($this->mpdf->pages);
         $numberPagesExternalFile = $this->mpdf->setSourceFile($filePath);
