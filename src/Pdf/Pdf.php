@@ -27,6 +27,7 @@ namespace UCSDMath\Pdf;
  * (+) string render();
  * (+) PdfInterface registerPageMargins();
  * (+) PdfInterface setFontSize(int $size);
+ * (+) PdfInterface importPages(string $filePath);
  * (+) PdfInterface setFilename(string $filename);
  * (+) PdfInterface setOutputDestination(string $destination);
  * (+) PdfInterface initializePageSetup(string $pageSize = null, string $orientation = null);
@@ -77,42 +78,6 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
     //--------------------------------------------------------------------------
 
     /**
-     * Initialize a new PDF document by specifying page size and orientation.
-     *
-     * @param string $pageSize    The page size ('Letter','Legal','A4')
-     * @param string $orientation The page orientation ('Portrait','Landscape')
-     *
-     * @return PdfInterface The current interface
-     *
-     * @api
-     */
-    public function initializePageSetup(string $pageSize = null, string $orientation = null): PdfInterface
-    {
-        in_array($pageSize, $this->pageTypes)
-            ? $this->setProperty(
-                'mpdf',
-                new \mPDF(
-                    'utf-8',
-                    $pageSize . '-' . $orientation[0],
-                    $this->fontSize,
-                    $this->fontType,
-                    $this->marginLeft,
-                    $this->marginRight,
-                    $this->marginTop,
-                    $this->marginBottom,
-                    $this->marginHeader,
-                    $this->marginFooter,
-                    $orientation[0]
-                )
-            )
-            : $this->setProperty('mpdf', new \mPDF('UTF-8', 'Letter-P'));
-
-        return $this;
-    }
-
-    //--------------------------------------------------------------------------
-
-    /**
      * Render the PDF to output.
      *
      * @return string
@@ -152,53 +117,6 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
         $mpdf->orig_hMargin = $mpdf->margin_header = $this->marginHeader;
         $mpdf->orig_fMargin = $mpdf->margin_footer = $this->marginFooter;
         $mpdf->pgwidth = $mpdf->w - $mpdf->lMargin - $mpdf->rMargin;
-
-        return $this;
-    }
-
-    //--------------------------------------------------------------------------
-
-    /**
-     * Set the output destination.
-     *
-     * @param string $destination The destination to send the PDF
-     *
-     * @return PdfInterface The current interface
-     *
-     * @api
-     */
-    public function setOutputDestination(string $destination): PdfInterface
-    {
-        /**
-         * Destinations can be sent to the following:
-         *    - I/B [Inline]   - Sends output to browser (browser plug-in is used if avaialble)
-         *                       If a $filename is given, the browser's "Save as..." option is provided
-         *    - D   [Download] - Forces browser to download the file
-         *    - F   [File]     - Saves the file to the server's filesystem cache
-         *    - S   [String]   - Returns the PDF as a string
-         */
-        $this->setProperty(
-            'outputDestination',
-            strtoupper($destination[0]) === 'B' ? 'I' : strtoupper($destination[0])
-        );
-
-        return $this;
-    }
-
-    //--------------------------------------------------------------------------
-
-    /**
-     * Set the document filename.
-     *
-     * @param string $filename The default document filename
-     *
-     * @return PdfInterface The current interface
-     *
-     * @api
-     */
-    public function setFilename(string $filename): PdfInterface
-    {
-        $this->setProperty('filename', $filename);
 
         return $this;
     }
@@ -251,6 +169,89 @@ class Pdf extends AbstractPdfAdapter implements PdfInterface
             }
             $this->mpdf->useTemplate($this->mpdf->importPage($i));
         }
+
+        return $this;
+    }
+
+    //--------------------------------------------------------------------------
+
+    /**
+     * Set the document filename.
+     *
+     * @param string $filename The default document filename
+     *
+     * @return PdfInterface The current interface
+     *
+     * @api
+     */
+    public function setFilename(string $filename): PdfInterface
+    {
+        $this->setProperty('filename', $filename);
+
+        return $this;
+    }
+
+    //--------------------------------------------------------------------------
+
+    /**
+     * Set the output destination.
+     *
+     * @param string $destination The destination to send the PDF
+     *
+     * @return PdfInterface The current interface
+     *
+     * @api
+     */
+    public function setOutputDestination(string $destination): PdfInterface
+    {
+        /**
+         * Destinations can be sent to the following:
+         *    - I/B [Inline]   - Sends output to browser (browser plug-in is used if avaialble)
+         *                       If a $filename is given, the browser's "Save as..." option is provided
+         *    - D   [Download] - Forces browser to download the file
+         *    - F   [File]     - Saves the file to the server's filesystem cache
+         *    - S   [String]   - Returns the PDF as a string
+         */
+        $this->setProperty(
+            'outputDestination',
+            strtoupper($destination[0]) === 'B' ? 'I' : strtoupper($destination[0])
+        );
+
+        return $this;
+    }
+
+    //--------------------------------------------------------------------------
+
+    /**
+     * Initialize a new PDF document by specifying page size and orientation.
+     *
+     * @param string $pageSize    The page size ('Letter','Legal','A4')
+     * @param string $orientation The page orientation ('Portrait','Landscape')
+     *
+     * @return PdfInterface The current interface
+     *
+     * @api
+     */
+    public function initializePageSetup(string $pageSize = null, string $orientation = null): PdfInterface
+    {
+        in_array($pageSize, $this->pageTypes)
+            ? $this->setProperty(
+                'mpdf',
+                new \mPDF(
+                    'utf-8',
+                    $pageSize . '-' . $orientation[0],
+                    $this->fontSize,
+                    $this->fontType,
+                    $this->marginLeft,
+                    $this->marginRight,
+                    $this->marginTop,
+                    $this->marginBottom,
+                    $this->marginHeader,
+                    $this->marginFooter,
+                    $orientation[0]
+                )
+            )
+            : $this->setProperty('mpdf', new \mPDF('UTF-8', 'Letter-P'));
 
         return $this;
     }
