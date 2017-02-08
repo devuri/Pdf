@@ -31,11 +31,11 @@ interface PdfInterface
      * @var string DEFAULT_PAGE_SIZE        The default page size
      * @var string DEFAULT_PAGE_ORIENTATION The default page orientation
      */
-    const DEFAULT_CHARSET = 'UTF-8';
-    const DEFAULT_PAGE_SIZE = 'Letter';
-    const DEFAULT_FILENAME = 'document.pdf';
-    const DEFAULT_PAGE_ORIENTATION = 'Portrait';
-    const DEFAULT_OUTPUT_DESTINATION = 'B';
+    public const DEFAULT_CHARSET = 'UTF-8';
+    public const DEFAULT_PAGE_SIZE = 'Letter';
+    public const DEFAULT_FILENAME = 'document.pdf';
+    public const DEFAULT_PAGE_ORIENTATION = 'Portrait';
+    public const DEFAULT_OUTPUT_DESTINATION = 'B';
 
     //--------------------------------------------------------------------------
 
