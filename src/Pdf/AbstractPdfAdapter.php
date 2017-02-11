@@ -31,17 +31,17 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) PdfInterface setPageAsPortrait();
  * (+) PdfInterface setPageSizeLetter();
  * (+) PdfInterface setPageAsLandscape();
- * (+) PdfInterface setFooter(array $data);
- * (+) PdfInterface setHeader(array $data);
+ * (+) PdfInterface setFooter(iterable $data);
+ * (+) PdfInterface setHeader(iterable $data);
  * (+) PdfInterface setMetaTitle(string $str);
  * (+) PdfInterface appendPageCSS(string $str);
- * (+) PdfInterface setMargins(array $setting);
+ * (+) PdfInterface setMargins(iterable $setting);
  * (+) PdfInterface setMetaAuthor(string $str);
  * (+) PdfInterface setMarginTop(int $marginTop);
  * (+) PdfInterface setMetaCreator(string $str);
  * (+) PdfInterface setMetaSubject(string $str);
  * (+) PdfInterface setPageSize(string $pageSize);
- * (+) PdfInterface setMetaKeywords(array $words);
+ * (+) PdfInterface setMetaKeywords(iterable $words);
  * (+) PdfInterface appendPageContent(string $str);
  * (+) PdfInterface setMarginLeft(int $marginLeft);
  * (+) PdfInterface setMarginRight(int $marginRight);
@@ -180,13 +180,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page header.
      *
-     * @param array $data The list of header items ('left','right')
+     * @param iterable $data The list of header items ('left','right')
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setHeader(array $data): PdfInterface
+    public function setHeader(iterable $data): PdfInterface
     {
         $string_right = str_replace("{{date(\"n/d/Y g:i A\")}}", Carbon::now()->format('n/d/Y g:i A'), $data['right']);
         $string_left  = str_replace("|", '<br>', $data['left']);
@@ -209,14 +209,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * {@note: printing even/odd pages is not available yet.}
      *
-     * @param array  $data The list of footer items ('left','center','right')
+     * @param iterable  $data The list of footer items ('left','center','right')
      * @param string $side The option for unique even/odd page printing ('both','even','odd')
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setFooter(array $data, string $side = 'both'): PdfInterface
+    public function setFooter(iterable $data, string $side = 'both'): PdfInterface
     {
         $data = array_change_key_case($data, CASE_LOWER);
 
@@ -442,13 +442,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page margins.
      *
-     * @param array $setting The margin configiration setting
+     * @param iterable $setting The margin configiration setting
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setMargins(array $setting): PdfInterface
+    public function setMargins(iterable $setting): PdfInterface
     {
         $this->setProperty('marginTop', (int) $setting['marginTop']);
         $this->setProperty('marginRight', (int) $setting['marginRight']);
@@ -612,11 +612,11 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set PDF Meta Key Words.
      *
-     * @param array $words  The page key words
+     * @param iterable $words  The page key words
      *
      * @return PdfInterface The current instance
      */
-    public function setMetaKeywords(array $words): PdfInterface
+    public function setMetaKeywords(iterable $words): PdfInterface
     {
         $this->setProperty('metaKeywords', array_merge($this->metaKeywords, $words));
         $this->mpdf->SetKeywords(implode(', ', $this->metaKeywords));
@@ -701,15 +701,15 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * (+) bool isValidUuid(string $uuid);
      * (+) bool isValidEmail(string $email);
      * (+) bool isValidSHA512(string $hash);
-     * (+) bool isStringKey(string $str, array $keys);
      * (+) bool doesFunctionExist(string $functionName);
+     * (+) bool isStringKey(string $str, iterable $keys);
      * (+) mixed get(string $key, string $subkey = null);
-     * (+) mixed __call(string $callback, array $parameters);
      * (+) mixed getProperty(string $name, string $key = null);
+     * (+) mixed __call(string $callback, iterable $parameters);
      * (+) object set(string $key, $value, string $subkey = null);
      * (+) object setProperty(string $name, $value, string $key = null);
-     * (-) Exception throwExceptionError(array $error);
-     * (-) InvalidArgumentException throwInvalidArgumentExceptionError(array $error);
+     * (-) Exception throwExceptionError(iterable $error);
+     * (-) InvalidArgumentException throwInvalidArgumentExceptionError(iterable $error);
      */
     use ServiceFunctions;
 
