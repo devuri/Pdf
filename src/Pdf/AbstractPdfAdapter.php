@@ -31,17 +31,17 @@ use UCSDMath\Functions\ServiceFunctionsInterface;
  * (+) PdfInterface setPageAsPortrait();
  * (+) PdfInterface setPageSizeLetter();
  * (+) PdfInterface setPageAsLandscape();
- * (+) PdfInterface setFooter(iterable $data);
- * (+) PdfInterface setHeader(iterable $data);
+ * (+) PdfInterface setFooter(array $data);
+ * (+) PdfInterface setHeader(array $data);
  * (+) PdfInterface setMetaTitle(string $str);
  * (+) PdfInterface appendPageCSS(string $str);
- * (+) PdfInterface setMargins(iterable $setting);
+ * (+) PdfInterface setMargins(array $setting);
  * (+) PdfInterface setMetaAuthor(string $str);
  * (+) PdfInterface setMarginTop(int $marginTop);
  * (+) PdfInterface setMetaCreator(string $str);
  * (+) PdfInterface setMetaSubject(string $str);
  * (+) PdfInterface setPageSize(string $pageSize);
- * (+) PdfInterface setMetaKeywords(iterable $words);
+ * (+) PdfInterface setMetaKeywords(array $words);
  * (+) PdfInterface appendPageContent(string $str);
  * (+) PdfInterface setMarginLeft(int $marginLeft);
  * (+) PdfInterface setMarginRight(int $marginRight);
@@ -180,13 +180,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page header.
      *
-     * @param iterable $data The list of header items ('left','right')
+     * @param array $data The list of header items ('left','right')
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setHeader(iterable $data): PdfInterface
+    public function setHeader(array $data): PdfInterface
     {
         $string_right = str_replace("{{date(\"n/d/Y g:i A\")}}", Carbon::now()->format('n/d/Y g:i A'), $data['right']);
         $string_left  = str_replace("|", '<br>', $data['left']);
@@ -209,14 +209,14 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * {@note: printing even/odd pages is not available yet.}
      *
-     * @param iterable  $data The list of footer items ('left','center','right')
+     * @param array  $data The list of footer items ('left','center','right')
      * @param string $side The option for unique even/odd page printing ('both','even','odd')
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setFooter(iterable $data, string $side = 'both'): PdfInterface
+    public function setFooter(array $data, string $side = 'both'): PdfInterface
     {
         $data = array_change_key_case($data, CASE_LOWER);
 
@@ -442,13 +442,13 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set the page margins.
      *
-     * @param iterable $setting The margin configiration setting
+     * @param array $setting The margin configiration setting
      *
      * @return PdfInterface The current instance
      *
      * @api
      */
-    public function setMargins(iterable $setting): PdfInterface
+    public function setMargins(array $setting): PdfInterface
     {
         $this->setProperty('marginTop', (int) $setting['marginTop']);
         $this->setProperty('marginRight', (int) $setting['marginRight']);
@@ -612,11 +612,11 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
     /**
      * Set PDF Meta Key Words.
      *
-     * @param iterable $words  The page key words
+     * @param array $words  The page key words
      *
      * @return PdfInterface The current instance
      */
-    public function setMetaKeywords(iterable $words): PdfInterface
+    public function setMetaKeywords(array $words): PdfInterface
     {
         $this->setProperty('metaKeywords', array_merge($this->metaKeywords, $words));
         $this->mpdf->SetKeywords(implode(', ', $this->metaKeywords));
@@ -689,7 +689,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * Method list: (+) @api, (-) protected or private visibility.
      *
-     * (+) iterable all();
+     * (+) array all();
      * (+) object init();
      * (+) string version();
      * (+) bool isString($str);
@@ -697,19 +697,19 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      * (+) string getClassName();
      * (+) int getInstanceCount();
      * (+) mixed getConst(string $key);
-     * (+) iterable getClassInterfaces();
+     * (+) array getClassInterfaces();
      * (+) bool isValidUuid(string $uuid);
      * (+) bool isValidEmail(string $email);
      * (+) bool isValidSHA512(string $hash);
      * (+) bool doesFunctionExist(string $functionName);
-     * (+) bool isStringKey(string $str, iterable $keys);
+     * (+) bool isStringKey(string $str, array $keys);
      * (+) mixed get(string $key, string $subkey = null);
      * (+) mixed getProperty(string $name, string $key = null);
-     * (+) mixed __call(string $callback, iterable $parameters);
+     * (+) mixed __call(string $callback, array $parameters);
      * (+) object set(string $key, $value, string $subkey = null);
      * (+) object setProperty(string $name, $value, string $key = null);
-     * (-) Exception throwExceptionError(iterable $error);
-     * (-) InvalidArgumentException throwInvalidArgumentExceptionError(iterable $error);
+     * (-) Exception throwExceptionError(array $error);
+     * (-) InvalidArgumentException throwInvalidArgumentExceptionError(array $error);
      */
     use ServiceFunctions;
 

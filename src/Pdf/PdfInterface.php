@@ -56,26 +56,26 @@ interface PdfInterface
     /**
      * Set the page header.
      *
-     * @param iterable $data The list of header items ('left','right')
+     * @param array $data The list of header items ('left','right')
      *
      * @return PdfInterface The current interface
      *
      * @api
      */
-    public function setHeader(iterable $data): PdfInterface;
+    public function setHeader(array $data): PdfInterface;
 
     //--------------------------------------------------------------------------
 
     /**
      * Set the page footer.
      *
-     * @param iterable $data The list of footer items ('left','center','right')
+     * @param array $data The list of footer items ('left','center','right')
      *
      * @return PdfInterface The current interface
      *
      * @api
      */
-    public function setFooter(iterable $data): PdfInterface;
+    public function setFooter(array $data): PdfInterface;
 
     //--------------------------------------------------------------------------
 
@@ -236,13 +236,13 @@ interface PdfInterface
     /**
      * Set the page margins.
      *
-     * @param iterable $setting The margin configiration setting
+     * @param array $setting The margin configiration setting
      *
      * @return PdfInterface The current interface
      *
      * @api
      */
-    public function setMargins(iterable $setting): PdfInterface;
+    public function setMargins(array $setting): PdfInterface;
 
     //--------------------------------------------------------------------------
 
