@@ -65,7 +65,7 @@ abstract class AbstractPdfAdapter implements PdfInterface, ServiceFunctionsInter
      *
      * @api
      */
-    public const VERSION = '1.25.0';
+    public const VERSION = '1.26.0';
 
     //--------------------------------------------------------------------------
 
